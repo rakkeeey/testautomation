@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AutomationTest" parallel="false">
+	<test name="CreateBooking" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.api.testscripts.CreateBooking" />
+		</classes>
+	</test>
+	<test name="GetBooking" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.api.testscripts.GetBooking" />
+		</classes>
+	</test>
+	<test name="UpdateBooking" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.api.testscripts.UpdateBooking" />
+		</classes>
+	</test>
+	<test name="DeleteBooking" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.api.testscripts.DeleteBooking" />
+		</classes>
+	</test>
+	<test name="AjaxFormSubmitTest" preserve-order="true" verbose="2">
+		<classes>
+			<class
+				name="com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest" />
+		</classes>
+	</test>
+	<test name="ProgressBarsTest" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.ui.testscripts.ProgressBarsTest" />
+		</classes>
+	</test>
+	<test name="SliderBarsTest" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.ui.testscripts.SliderBarsTest" />
+		</classes>
+	</test>
+</suite>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [AutomationTest]">
+  <test name="AjaxFormSubmitTest(failed)">
+    <classes>
+      <class name="com.seleniumeasy.ui.testscripts.SliderBarsTest">
+        <methods>
+          <include name="setup"/>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
+          <include name="oneTimeSetup"/>
+          <include name="beforeClass"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="afterSuite"/>
+          <include name="afterClassScript"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.ui.testscripts.SliderBarsTest -->
+      <class name="com.seleniumeasy.api.testscripts.GetBooking">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.api.testscripts.GetBooking -->
+      <class name="com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="ajaxFormSubmit"/>
+          <include name="beforeClass"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="setup"/>
+          <include name="afterTest"/>
+          <include name="oneTimeSetup"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest -->
+      <class name="com.seleniumeasy.api.testscripts.CreateBooking">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.api.testscripts.CreateBooking -->
+      <class name="com.seleniumeasy.api.testscripts.UpdateBooking">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.api.testscripts.UpdateBooking -->
+      <class name="com.seleniumeasy.ui.testscripts.ProgressBarsTest">
+        <methods>
+          <include name="afterClassScript"/>
+          <include name="setup"/>
+          <include name="beforeMethod"/>
+          <include name="oneTimeSetup"/>
+          <include name="beforeClass"/>
+          <include name="tearDown"/>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="afterTest"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.ui.testscripts.ProgressBarsTest -->
+      <class name="com.seleniumeasy.api.testscripts.DeleteBooking">
+        <methods>
+          <include name="init"/>
+        </methods>
+      </class> <!-- com.seleniumeasy.api.testscripts.DeleteBooking -->
+    </classes>
+  </test> <!-- AjaxFormSubmitTest(failed) -->
+</suite> <!-- Failed suite [AutomationTest] -->

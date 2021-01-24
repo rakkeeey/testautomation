@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>TestNG:  Unit Test</title>
+<style type="text/css">
+table caption,table.info_table,table.result,table.passed,table.failed {margin-bottom:10px;border:1px solid #000099;border-collapse:collapse;empty-cells:show;}
+table.info_table td,table.info_table th,table.result td,table.result th,table.passed td,table.passed th,table.failed td,table.failed th {
+border:1px solid #000099;padding:.25em .5em .25em .5em
+}
+table.result th {vertical-align:bottom}
+tr.param th {padding-left:1em;padding-right:1em}
+tr.param td {padding-left:.5em;padding-right:2em}
+td.numi,th.numi,td.numi_attn {
+text-align:right
+}
+tr.total td {font-weight:bold}
+table caption {
+text-align:center;font-weight:bold;
+}
+table.passed tr.stripe td,table tr.passedodd td {background-color: #00AA00;}
+table.passed td,table tr.passedeven td {background-color: #33FF33;}
+table.passed tr.stripe td,table tr.skippedodd td {background-color: #cccccc;}
+table.passed td,table tr.skippedodd td {background-color: #dddddd;}
+table.failed tr.stripe td,table tr.failedodd td,table.result td.numi_attn {background-color: #FF3333;}
+table.failed td,table tr.failedeven td,table.result tr.stripe td.numi_attn {background-color: #DD0000;}
+tr.stripe td,tr.stripe th {background-color: #E6EBF9;}
+p.totop {font-size:85%;text-align:center;border-bottom:2px black solid}
+div.shootout {padding:2em;border:3px #4854A8 solid}
+</style>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="result">
+<tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
+<tr><td style="text-align:left;padding-right:2em">CreateBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">2.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">GetBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">2.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">UpdateBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">3.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">DeleteBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">2.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">AjaxFormSubmitTest</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">20.2 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">ProgressBarsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">34.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">SliderBarsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">24.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="total"><td>Total</td>
+<td class="numi">10</td><td class="numi">10</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">89.2 seconds</td><td colspan="2">&nbsp;</td></tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="passed" id="summary">
+<tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
+<tr><th colspan="4">CreateBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.CreateBooking</td><td><a href="#m1"><b>createBookingTest</b>  </a></td><td class="numi">1</td><td>1611505891522</td><td class="numi">1876</td></tr><tr class="passedodd"><td><a href="#m2"><b>createBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611505893399</td><td class="numi">1014</td></tr>
+<tr><th colspan="4">GetBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.GetBooking</td><td><a href="#m3"><b>getBookingTest</b>  </a></td><td class="numi">1</td><td>1611505894442</td><td class="numi">1038</td></tr><tr class="passedodd"><td><a href="#m4"><b>getBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611505895480</td><td class="numi">1035</td></tr>
+<tr><th colspan="4">UpdateBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.UpdateBooking</td><td><a href="#m5"><b>updateBookingTest</b>  </a></td><td class="numi">1</td><td>1611505896529</td><td class="numi">2016</td></tr><tr class="passedodd"><td><a href="#m6"><b>updateBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611505898555</td><td class="numi">991</td></tr>
+<tr><th colspan="4">DeleteBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.DeleteBooking</td><td><a href="#m7"><b>deleteBookingTest</b>  </a></td><td class="numi">1</td><td>1611505899557</td><td class="numi">1046</td></tr><tr class="passedodd"><td><a href="#m8"><b>deleteBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611505900609</td><td class="numi">1032</td></tr>
+<tr><th colspan="4">AjaxFormSubmitTest &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest</td><td><a href="#m9"><b>ajaxFormSubmit</b>  </a></td><td class="numi">1</td><td>1611505901663</td><td class="numi">20162</td></tr>
+<tr><th colspan="4">ProgressBarsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.ProgressBarsTest</td><td><a href="#m10"><b>progressBars</b>  </a></td><td class="numi">1</td><td>1611505921845</td><td class="numi">33964</td></tr>
+<tr><th colspan="4">SliderBarsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.SliderBarsTest</td><td><a href="#m11"><b>setSlidersToFifty</b>  </a></td><td class="numi">1</td><td>1611505956734</td><td class="numi">23132</td></tr>
+</table>
+<h1>CreateBooking</h1>
+<h2 id="m1">com.seleniumeasy.api.testscripts.CreateBooking:createBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.seleniumeasy.api.testscripts.CreateBooking:createBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>GetBooking</h1>
+<h2 id="m3">com.seleniumeasy.api.testscripts.GetBooking:getBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.seleniumeasy.api.testscripts.GetBooking:getBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>UpdateBooking</h1>
+<h2 id="m5">com.seleniumeasy.api.testscripts.UpdateBooking:updateBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">com.seleniumeasy.api.testscripts.UpdateBooking:updateBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>DeleteBooking</h1>
+<h2 id="m7">com.seleniumeasy.api.testscripts.DeleteBooking:deleteBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m8">com.seleniumeasy.api.testscripts.DeleteBooking:deleteBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>AjaxFormSubmitTest</h1>
+<h2 id="m9">com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest:ajaxFormSubmit</h2>
+<div style="padding-left:3em">
+<p>no such element: Unable to locate element: {&quot;method&quot;:&quot;css selector&quot;,&quot;selector&quot;:&quot;#at-cv-lightbox-close&quot;}
+  (Session info: chrome=88.0.4324.104)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: &apos;3.141.59&apos;, revision: &apos;e82be7d358&apos;, time: &apos;2018-11-14T08:17:03&apos;
+System info: host: &apos;RAKESH-LAP&apos;, ip: &apos;192.168.0.105&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_201&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 88.0.4324.104, chrome: {chromedriverVersion: 88.0.4324.96 (68dba2d8a0b14..., userDataDir: C:\Users\Rakesh\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:62359}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 744eeaa303e9d5c829a7c2942eff509d
+*** Element info: {Using=css selector, value=#at-cv-lightbox-close}</p>
+sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+<br/>at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+<br/>at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+<br/>at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+<br/>at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+<br/>at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+<br/>at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.findElementByCssSelector(RemoteWebDriver.java:420)
+<br/>at org.openqa.selenium.By$ByCssSelector.findElement(By.java:431)
+<br/>at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+<br/>at com.seleniumeasy.ui.testobjects.AjaxFormPage.CloseAdPopupIfDisplayed(AjaxFormPage.java:86)
+<br/>at com.seleniumeasy.ui.testobjects.AjaxFormPage.clickInputForms(AjaxFormPage.java:76)
+<br/>at com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest.ajaxFormSubmit(AjaxFormSubmitTest.java:73)
+<br/>25 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>ProgressBarsTest</h1>
+<h2 id="m10">com.seleniumeasy.ui.testscripts.ProgressBarsTest:progressBars</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>SliderBarsTest</h1>
+<h2 id="m11">com.seleniumeasy.ui.testscripts.SliderBarsTest:setSlidersToFifty</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+</body></html>
