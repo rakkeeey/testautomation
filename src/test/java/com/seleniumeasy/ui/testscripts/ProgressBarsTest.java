@@ -45,9 +45,9 @@ public class ProgressBarsTest extends WebUIBaseTest {
 
 	}
 
-	@Test//(groups = { "sanity" })
+	@Test // (groups = { "sanity" })
 	public void progressBars() throws Exception {
-		
+
 		Global.sScriptName = "progressBars";
 		Global.useCaseName = "TC_03_Progress Bars";
 		Global.useCaseDescription = "Verify it proceeds till 100% and lo the Total time taken for download (in seconds)";
@@ -68,9 +68,9 @@ public class ProgressBarsTest extends WebUIBaseTest {
 		SeleniumBrowser.launchBrowsernLoadURL();
 		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
-		progressbars= new ProgressBarsPage();
+		progressbars = new ProgressBarsPage();
 		currentTime = pageAction.getCurrentTimestamp();
-		
+
 		pageAction.waitForElement(By.linkText(progressbars.progressBarsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		progressbars.clickProgressBars();
@@ -80,19 +80,28 @@ public class ProgressBarsTest extends WebUIBaseTest {
 		progressbars.startAndVerifyDownloadProgress();
 		pageAction.stopStopwatch();
 		
-		
-		
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
-		
+
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-		
-		
+		Global.sScriptName = "afterClassScript";
+		Global.useCaseName = "After Class Script";
+		Global.useCaseDescription = "";
+		Global.curHighLight = true;
+		Global.curHeading = "Stop script";
+		Global.ER = "Succesful execution of after suite method";
+		Global.EAR = "After suite method executed successfully";
+		Global.UEAR = "After suite method failed to execute";
 
-	
+		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
+		Global.curHighLight = false;
+		Global.prevHeading = Global.curHeading;
+		Global.PER = Global.ER;
+		Global.PEAR = Global.EAR;
+		Global.PUEAR = Global.UEAR;
 	}
 }

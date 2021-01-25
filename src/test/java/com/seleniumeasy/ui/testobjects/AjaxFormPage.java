@@ -53,8 +53,7 @@ public class AjaxFormPage extends PageAction {
 	 */
 
 	public void clickAjaxSubmitFormLink() {
-		clickButton("Ajax Submit Form Link", ajaxFormSubmitLink);
-
+		clickButtonJS("Ajax Submit Form Link", ajaxFormSubmitLink);
 	}
 
 	public void clickSubmitButton() {
@@ -62,7 +61,7 @@ public class AjaxFormPage extends PageAction {
 
 	}
 
-	public void VerifyifSpinnerIsDisplayed() {
+	public void VerifyIfSpinnerIsDisplayed() {
 		Assert.assertTrue(isElementDisplayed("Spinner", spinner));
 	}
 
@@ -73,8 +72,6 @@ public class AjaxFormPage extends PageAction {
 
 	public void clickInputForms() throws InterruptedException {
 		clickButtonJS("Input Forms Link", inputForms);
-		CloseAdPopupIfDisplayed();
-
 	}
 
 	public void enterComments() throws FileNotFoundException, IOException {

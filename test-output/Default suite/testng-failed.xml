@@ -3,12 +3,23 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.seleniumeasy.api.testscripts.CreateBooking">
+      <class name="com.seleniumeasy.ui.testscripts.JQueryDatePickerTest">
         <methods>
-          <include name="init"/>
-          <include name="createBookingTestNegative"/>
+          <include name="oneTimeSetup"/>
+          <include name="afterMethod"/>
+          <include name="beforeSuite"/>
+          <include name="setup"/>
+          <include name="afterTest"/>
+          <include name="selectDates"/>
+          <include name="beforeMethod"/>
+          <include name="afterClassScript"/>
+          <include name="beforeClass"/>
+          <include name="beforeTest"/>
+          <include name="tearDown"/>
+          <include name="afterSuite"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.seleniumeasy.api.testscripts.CreateBooking -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.JQueryDatePickerTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

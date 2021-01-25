@@ -17,9 +17,8 @@ import com.seleniumeasy.framework.web.PageAction;
 public class ProgressBarsPage extends PageAction {
 
 	public Log logger;
-	private static AjaxFormPage ajaxform;
+	
 	public String progressBarsLink = "Progress Bars";
-	private static String adhocPopup_closeBtn = "#at-cv-lightbox-close";
 	public String ajaxFormsSubmitLink = "Ajax Form Submit";
 	
 	
@@ -41,7 +40,6 @@ public class ProgressBarsPage extends PageAction {
 	public ProgressBarsPage() throws FileNotFoundException, IOException {
 		logger = new Log4JLogger("ProgressBarsPageLogger");
 		PageFactory.initElements(driver, this);
-		ajaxform = new AjaxFormPage();
 	}
 
 	/**

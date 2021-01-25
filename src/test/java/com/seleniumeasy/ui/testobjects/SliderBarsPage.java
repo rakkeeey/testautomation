@@ -15,7 +15,6 @@ import com.seleniumeasy.framework.web.PageAction;
 public class SliderBarsPage extends PageAction {
 
 	public Log logger;
-	private static AjaxFormPage ajaxform;
 	public String rangeLabell = "//output[@id='range']";
 	public String ajaxFormsSubmitLink = "Ajax Form Submit";
 	
@@ -69,7 +68,6 @@ public class SliderBarsPage extends PageAction {
 	public SliderBarsPage() throws FileNotFoundException, IOException {
 		logger = new Log4JLogger("SliderBarsPageLogger");
 		PageFactory.initElements(driver, this);
-		ajaxform = new AjaxFormPage();
 	}
 
 	/**

@@ -81,6 +81,8 @@ public class SliderBarsTest extends WebUIBaseTest {
 		sliderbars.clickDragAndDropSlidersLink();
 		pageAction.waitForElement(By.xpath(sliderbars.rangeLabell));
 		sliderbars.setAllSliders();
+		SeleniumBrowser.deleteFolder();
+		SeleniumBrowser.driver.quit();
 
 	}
 
@@ -97,7 +99,7 @@ public class SliderBarsTest extends WebUIBaseTest {
 		Global.ER = "Succesful execution of after suite method";
 		Global.EAR = "After suite method executed successfully";
 		Global.UEAR = "After suite method failed to execute";
-		
+
 		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
 		Global.curHighLight = false;
 		Global.prevHeading = Global.curHeading;

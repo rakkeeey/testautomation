@@ -46,17 +46,17 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 
 	}
 
-	@Test//(groups = { "sanity" })
-	public void setSlidersToFifty() throws Exception {
-		
-		Global.sScriptName = "setSlidersToFifty";
-		Global.useCaseName = "TC_04_Set Sliders to Fifty";
-		Global.useCaseDescription = "Set all sliders to 50% and validate values are set to 50%";
+	@Test // (groups = { "sanity" })
+	public void multipleWindowsHandling() throws Exception {
+
+		Global.sScriptName = "multipleWindowsHandling";
+		Global.useCaseName = "TC_05_Multiple Window Handling";
+		Global.useCaseDescription = "Verify both windows are popped up and log the page titles of both the pop-up windows and come back to the test page and print the page title";
 		Global.curHighLight = true;
-		Global.curHeading = "Set all Sliders to Fifty";
-		Global.ER = "Succesful slider set to Fifty";
-		Global.EAR = "All sliders set to Fifty successfully";
-		Global.UEAR = "Failed to set all sliders to Fifty";
+		Global.curHeading = "Verify active window and log the page title";
+		Global.ER = "Succesful verification of active windows";
+		Global.EAR = "Verified active window and logged the page title successfully";
+		Global.UEAR = "Failed to verify active windows";
 
 		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
 		Global.curHighLight = false;
@@ -70,21 +70,20 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		currentTime = pageAction.getCurrentTimestamp();
-		multiplewindows= new MultipleWindowsPage();
-	
+		multiplewindows = new MultipleWindowsPage();
 		multiplewindows.waitForElement(By.linkText(multiplewindows.alertsAndModalsLinkk));
 		ajaxform.CloseAdPopupIfDisplayed();
 		multiplewindows.clickAlertsAndModalsLink();
 		multiplewindows.clickWindowPopUpModalLink();
 		multiplewindows.waitForElement(By.xpath(multiplewindows.followTwitAndFbButtonn));
-        multiplewindows.verifyOpenWindowsAndGetTitles();
+		multiplewindows.verifyOpenWindowsAndGetTitles();
 		
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
-		
+
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
 		Global.sScriptName = "afterClassScript";
@@ -95,7 +94,7 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 		Global.ER = "Succesful execution of after suite method";
 		Global.EAR = "After suite method executed successfully";
 		Global.UEAR = "After suite method failed to execute";
-		
+
 		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
 		Global.curHighLight = false;
 		Global.prevHeading = Global.curHeading;

@@ -43,9 +43,9 @@ public class AjaxFormSubmitTest extends WebUIBaseTest {
 
 	}
 
-	@Test//(groups = { "sanity" })
+	@Test // (groups = { "sanity" })
 	public void ajaxFormSubmit() throws Exception {
-		
+
 		Global.sScriptName = "ajaxFormSubmit";
 		Global.useCaseName = "TC_01_Ajax Form Submission";
 		Global.useCaseDescription = "Verify on clicking submit spinner is shown and shows a success message once the submission is complete";
@@ -67,7 +67,7 @@ public class AjaxFormSubmitTest extends WebUIBaseTest {
 		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		currentTime = pageAction.getCurrentTimestamp();
-		
+
 		pageAction.waitForElement(By.linkText(ajaxform.inputFormsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		ajaxform.clickInputForms();
@@ -75,15 +75,28 @@ public class AjaxFormSubmitTest extends WebUIBaseTest {
 		ajaxform.enterTitle();
 		ajaxform.enterComments();
 		ajaxform.clickSubmitButton();
-		ajaxform.VerifyifSpinnerIsDisplayed();
-
+		ajaxform.VerifyIfSpinnerIsDisplayed();
+		
 	}
 
-	//@AfterClass(alwaysRun = true)
-	public static void afterClassScript() throws Exception {
-		
+	 @AfterClass(alwaysRun = true)
+	public static void AfterTestScript() throws Exception {
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-	
+		Global.sScriptName = "afterClassScript";
+		Global.useCaseName = "After Class Script";
+		Global.useCaseDescription = "";
+		Global.curHighLight = true;
+		Global.curHeading = "Stop script";
+		Global.ER = "Succesful execution of after suite method";
+		Global.EAR = "After suite method executed successfully";
+		Global.UEAR = "After suite method failed to execute";
+
+		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
+		Global.curHighLight = false;
+		Global.prevHeading = Global.curHeading;
+		Global.PER = Global.ER;
+		Global.PEAR = Global.EAR;
+		Global.PUEAR = Global.UEAR;
 	}
 }

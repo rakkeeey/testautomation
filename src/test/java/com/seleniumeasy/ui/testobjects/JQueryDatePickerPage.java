@@ -7,73 +7,84 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import com.seleniumeasy.framework.web.PageAction;
 
+import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.web.PageAction;
 
 public class JQueryDatePickerPage extends PageAction {
 
 	public Log logger;
-	private static AjaxFormPage ajaxform;
+
 	public String datePickersLink = "Date pickers";
 	public String year = "2021";
 
 	@FindBy(linkText = "Date pickers")
 	WebElement datePickers;
-	
+
 	@FindBy(linkText = "JQuery Date Picker")
 	WebElement jqueryDatePicker;
-	
+
 	@FindBy(xpath = "//input[@id='from']")
 	WebElement fromDateField;
-	
+
 	@FindBy(xpath = "//input[@id='to']")
 	WebElement toDateField;
-	
+
 	@FindBy(css = ".ui-datepicker-month")
 	WebElement monthDropdown;
-	
+
 	@FindBy(css = ".ui-datepicker-year")
 	WebElement yearLabel;
-	
+
 	@FindBy(css = ".ui-icon.ui-icon-circle-triangle-w")
 	WebElement monthLeftNavigation;
-	
+
 	@FindBy(css = ".ui-icon.ui-icon-circle-triangle-e")
 	WebElement monthRightNavigation;
 
 	public JQueryDatePickerPage() throws FileNotFoundException, IOException {
 		logger = new Log4JLogger("AjaxFormPageLogger");
 		PageFactory.initElements(driver, this);
-		ajaxform = new AjaxFormPage();
 	}
 
 	/**
 	 * Clicks Input Forms link
-	 * @throws IOException 
-	 * @throws FileNotFoundException 
+	 * 
+	 * @throws IOException
+	 * @throws FileNotFoundException
 	 * 
 	 */
-	
+
 	public void clickDatePickers() throws InterruptedException {
 		clickButtonJS("Date Pickers Link", datePickers);
-		//ajaxform.CloseAdPopupIfDisplayed();
 	}
-	
+
 	public void clickJqueryDatePicker() throws InterruptedException {
 		clickButtonJS("JQuery Date Picker", jqueryDatePicker);
 	}
-	
-	public void clickFromDate() throws InterruptedException {
-		clickButtonJS("From Date Field", fromDateField);
+
+	public void verifyDateSelection() throws InterruptedException {
+		clickFromDate();
+		Thread.sleep(1000);
+		datePicker("1", "Jan", "2021");
+		clickToDate();
+		Thread.sleep(1000);
+		datePicker("1", "Feb", "2021");
+		Thread.sleep(1000);
+		verifyFromDateSelection();
+		verifyToDateSelection();
 	}
-	
+
+	public void clickFromDate() throws InterruptedException {
+		clickButton("From Date Field", fromDateField);
+	}
+
 	public void clickToDate() throws InterruptedException {
-		clickButtonJS("To Date Field", toDateField);
+		clickButton("To Date Field", toDateField);
 	}
 
 	public void verifyToDateSelection() throws InterruptedException {
@@ -96,6 +107,9 @@ public class JQueryDatePickerPage extends PageAction {
 		monthLeftNavigation.click();
 		Assert.assertTrue(!defaultItems.equals("Dec"));
 		Assert.assertEquals(yearLabel.getText(), year);
+		Utility.reportingResults("Pass", "verify you should not be able to select To date beyond Feb 1",
+				"User is not able to select To Date beyond Feb 1",
+				"User should not able to select To Date beyond Feb 1");
 
 	}
 
@@ -121,6 +135,9 @@ public class JQueryDatePickerPage extends PageAction {
 		for (int i = 2; i <= 28; i++) {
 			Assert.assertFalse(isElementPresent((By.linkText(Integer.toString(i)))));
 		}
+		Utility.reportingResults("Pass", "verify you should not be able to select From date beyond Jan 1",
+				"User is not able to select From date beyond Jan 1",
+				"User should not able to select From date beyond Jan 1");
 	}
 
 }

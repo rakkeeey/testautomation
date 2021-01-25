@@ -48,8 +48,6 @@ public class SeleniumBrowser {
 		printEnvInfo();
 	}
 
-	
-
 	public static void loadURL() throws Exception {
 		driver.get(SeleniumBrowser.hostname);
 	}
@@ -73,7 +71,7 @@ public class SeleniumBrowser {
 		folder.delete();
 	}
 
-	// checks the browser input, and defaults to IE if there are any issues.
+	// checks the browser input, and open the corresponding browser.
 	public static void LaunchBrowser() throws FileNotFoundException, IOException, Exception {
 		if (browser.toLowerCase().equals("iexplore") || browser.toLowerCase().equals("ie")
 				|| browser.toLowerCase().equals("internet explorer")) {
@@ -95,6 +93,8 @@ public class SeleniumBrowser {
 			driver = new InternetExplorerDriver();
 		} else if (browser.toLowerCase().equals("firefox") || browser.toLowerCase().equals("ff")) {
 			browser = "firefox";
+			System.setProperty("webdriver.gecko.driver",
+					"src\\test\\resources\\bits\\drivers\\firefox\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		} else if (browser.toLowerCase().equals("chrome") || browser.toLowerCase().equals("google")
 				|| browser.toLowerCase().equals("google chrome") || browser.toLowerCase().equals("googlechrome")) {
@@ -108,7 +108,6 @@ public class SeleniumBrowser {
 						"src//test//resources//bits//drivers//chrome//chrome_linux64");
 			} else {
 				//System.out.println("Unexpected Operating System");
-
 			}
 			
 			// Add Chrome Preferences

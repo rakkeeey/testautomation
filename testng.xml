@@ -26,6 +26,31 @@
 				name="com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest" />
 		</classes>
 	</test>
+	<test name="FileDownloadTest" preserve-order="true" verbose="2">
+		<classes>
+			<class name="com.seleniumeasy.ui.testscripts.FileDownloadTest" />
+		</classes>
+	</test>
+	<test name="JavascriptAlertsTest" preserve-order="true"
+		verbose="2">
+		<classes>
+			<class
+				name="com.seleniumeasy.ui.testscripts.JavascriptAlertsTest" />
+		</classes>
+	</test>
+	<test name="JQueryDatePickerTest" preserve-order="true"
+		verbose="2">
+		<classes>
+			<class
+				name="com.seleniumeasy.ui.testscripts.JQueryDatePickerTest" />
+		</classes>
+	</test>
+	<test name="MultipleWindowsTest" preserve-order="true" verbose="2">
+		<classes>
+			<class
+				name="com.seleniumeasy.ui.testscripts.MultipleWindowsTest" />
+		</classes>
+	</test>
 	<test name="ProgressBarsTest" preserve-order="true" verbose="2">
 		<classes>
 			<class name="com.seleniumeasy.ui.testscripts.ProgressBarsTest" />

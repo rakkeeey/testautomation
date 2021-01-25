@@ -1,6 +1,8 @@
 package com.seleniumeasy.framework.web;
 
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,8 +11,10 @@ import java.util.Calendar;
 import org.apache.commons.lang3.time.StopWatch;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -44,9 +48,32 @@ public class PageAction extends SeleniumBrowser{
 		sw = new StopWatch();
 
 	} 
+	
+	public void readAndVerifyDownloadedTextFile(String fileLocation, String ExpectedText) throws Exception {
+
+		BufferedReader br = new BufferedReader(new FileReader(fileLocation));
+		try {
+			StringBuilder sb = new StringBuilder();
+			String line = br.readLine();
+
+			while (line != null) {
+				sb.append(line);
+				sb.append(System.lineSeparator());
+				line = br.readLine();
+			}
+			String everything = sb.toString().trim();
+			logger.info("The content present in the file is " + everything);
+			Assert.assertTrue(everything.equals(ExpectedText));
+			Utility.reportingResults("Pass", "Content of the file",
+					"The content present in the file is " + everything,
+					"Content in the file and input provided by the user should be the same");
+		} finally {
+			br.close();
+		}
+
+	}
 	public void datePicker(String date, String month, String year) {
 		try {
-		Thread.sleep(2000);
 		Actions a = new Actions(driver);
 		Assert.assertEquals(driver.findElement(By.cssSelector(".ui-datepicker-year")).getText(), year);
 		Select MonthOne = new Select(driver.findElement(By.cssSelector(".ui-datepicker-month")));
@@ -64,6 +91,23 @@ public class PageAction extends SeleniumBrowser{
 	}
 	}
 	
+	public boolean isAlertPresentAndAcceptAlert() throws InterruptedException {
+		try {
+			Thread.sleep(2000);
+			Alert alert = driver.switchTo().alert();
+			alert.accept();
+			Utility.reportingResults("Pass", "Verify if The javascript alert is shown and handled by the script" ,
+					"Java script alert is shown and accepted by the script " ,
+					"The javascript alert should be shown and handled by the script" );
+			return true;
+		} catch (NoAlertPresentException Ex) {
+			Utility.reportingResults("Fail", "Verify if The javascript alert is shown and handled by the script" ,
+					"Java script alert is not shown and not accepted by the script " ,
+					"The javascript alert should be shown and handled by the script");
+			return false;
+		}
+	}
+	
 	public void assertTruePercentage(WebElement Element, String Expected) {
 
 		try {
@@ -72,7 +116,7 @@ public class PageAction extends SeleniumBrowser{
 					"Displayed download and expected download percentage is equal to " + Expected,
 					"Displayed download and expected download percentage should be  equal to " + Expected);
 		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "he expected download percentage is" + Expected,
+			Utility.reportingResults("Fail", "The expected download percentage is" + Expected,
 					"Displayed download and expected download percentage is equal to " + Expected,
 					"Displayed download and expected download percentage should be  equal to " + Expected);
 			new FrameworkException(exception, "SeleniumDriver:select(" + Expected + ")");
