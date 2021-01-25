@@ -50,7 +50,7 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 	public void multipleWindowsHandling() throws Exception {
 
 		Global.sScriptName = "multipleWindowsHandling";
-		Global.useCaseName = "TC_05_Multiple Window Handling";
+		Global.useCaseName = "UI_TC_05_Multiple Window Handling";
 		Global.useCaseDescription = "Verify both windows are popped up and log the page titles of both the pop-up windows and come back to the test page and print the page title";
 		Global.curHighLight = true;
 		Global.curHeading = "Verify active window and log the page title";
@@ -83,24 +83,8 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
-
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-		Global.sScriptName = "afterClassScript";
-		Global.useCaseName = "After Class Script";
-		Global.useCaseDescription = "";
-		Global.curHighLight = true;
-		Global.curHeading = "Stop script";
-		Global.ER = "Succesful execution of after suite method";
-		Global.EAR = "After suite method executed successfully";
-		Global.UEAR = "After suite method failed to execute";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
 
 	}
 }

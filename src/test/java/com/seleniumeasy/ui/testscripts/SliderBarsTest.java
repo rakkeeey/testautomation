@@ -47,11 +47,11 @@ public class SliderBarsTest extends WebUIBaseTest {
 
 	}
 
-	@Test//(groups = { "sanity" })
+	@Test // (groups = { "sanity" })
 	public void setSlidersToFifty() throws Exception {
-		
+
 		Global.sScriptName = "setSlidersToFifty";
-		Global.useCaseName = "TC_04_Set Sliders to Fifty";
+		Global.useCaseName = "UI_TC_04_Set Sliders to Fifty";
 		Global.useCaseDescription = "Set all sliders to 50% and validate values are set to 50%";
 		Global.curHighLight = true;
 		Global.curHeading = "Set all Sliders to Fifty";
@@ -71,9 +71,9 @@ public class SliderBarsTest extends WebUIBaseTest {
 		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		currentTime = pageAction.getCurrentTimestamp();
-		sliderbars= new SliderBarsPage();
-		progressbars= new ProgressBarsPage();
-		
+		sliderbars = new SliderBarsPage();
+		progressbars = new ProgressBarsPage();
+
 		pageAction.waitForElement(By.linkText(ajaxform.inputFormsLink));
 		pageAction.waitForElement(By.linkText(progressbars.progressBarsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
@@ -81,14 +81,12 @@ public class SliderBarsTest extends WebUIBaseTest {
 		sliderbars.clickDragAndDropSlidersLink();
 		pageAction.waitForElement(By.xpath(sliderbars.rangeLabell));
 		sliderbars.setAllSliders();
-		SeleniumBrowser.deleteFolder();
-		SeleniumBrowser.driver.quit();
 
 	}
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
-		
+
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
 		Global.sScriptName = "afterClassScript";

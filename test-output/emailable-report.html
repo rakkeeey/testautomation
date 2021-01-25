@@ -31,14 +31,104 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">51.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">CreateBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">5.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">GetBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">20.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">UpdateBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">2.1 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">DeleteBooking</td><td class="numi">2</td><td class="numi">2</td><td class="numi">0</td><td class="numi">0</td><td class="numi">2.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">AjaxFormSubmitTest</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">28.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">FileDownloadTest</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">98.8 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">JavascriptAlertsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">16.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">JQueryDatePickerTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">35.3 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">MultipleWindowsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">26.0 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="stripe"><td style="text-align:left;padding-right:2em">ProgressBarsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">34.6 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">SliderBarsTest</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">18.7 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr class="total"><td>Total</td>
+<td class="numi">13</td><td class="numi">13</td><td class="numi">0</td><td class="numi_attn">2</td><td class="numi">289.0 seconds</td><td colspan="2">&nbsp;</td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; passed</th></tr>
-<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.JQueryDatePickerTest</td><td><a href="#m1"><b>selectDates</b>  </a></td><td class="numi">1</td><td>1611576378339</td><td class="numi">50176</td></tr>
+<tr><th colspan="4">CreateBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.CreateBooking</td><td><a href="#m1"><b>createBookingTest</b>  </a></td><td class="numi">1</td><td>1611580586567</td><td class="numi">1893</td></tr><tr class="passedodd"><td><a href="#m2"><b>createBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611580588460</td><td class="numi">3710</td></tr>
+<tr><th colspan="4">GetBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.GetBooking</td><td><a href="#m3"><b>getBookingTest</b>  </a></td><td class="numi">1</td><td>1611580592202</td><td class="numi">19123</td></tr><tr class="passedodd"><td><a href="#m4"><b>getBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611580611325</td><td class="numi">1172</td></tr>
+<tr><th colspan="4">UpdateBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.UpdateBooking</td><td><a href="#m5"><b>updateBookingTest</b>  </a></td><td class="numi">1</td><td>1611580612523</td><td class="numi">1140</td></tr><tr class="passedodd"><td><a href="#m6"><b>updateBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611580613663</td><td class="numi">979</td></tr>
+<tr><th colspan="4">DeleteBooking &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="2">com.seleniumeasy.api.testscripts.DeleteBooking</td><td><a href="#m7"><b>deleteBookingTest</b>  </a></td><td class="numi">1</td><td>1611580614668</td><td class="numi">1525</td></tr><tr class="passedodd"><td><a href="#m8"><b>deleteBookingTestNegative</b>  </a></td><td class="numi">1</td><td>1611580616201</td><td class="numi">1309</td></tr>
+<tr><th colspan="4">AjaxFormSubmitTest &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest</td><td><a href="#m9"><b>ajaxFormSubmit</b>  </a></td><td class="numi">1</td><td>1611580617526</td><td class="numi">27291</td></tr>
+<tr><th colspan="4">FileDownloadTest &#8212; failed</th></tr>
+<tr class="failedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.FileDownloadTest</td><td><a href="#m10"><b>fileDownload</b>  </a></td><td class="numi">1</td><td>1611580645566</td><td class="numi">98039</td></tr>
+<tr><th colspan="4">JavascriptAlertsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.JavascriptAlertsTest</td><td><a href="#m11"><b>javascriptAlertsHandling</b>  </a></td><td class="numi">1</td><td>1611580744361</td><td class="numi">15052</td></tr>
+<tr><th colspan="4">JQueryDatePickerTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.JQueryDatePickerTest</td><td><a href="#m12"><b>selectDates</b>  </a></td><td class="numi">1</td><td>1611580760933</td><td class="numi">34616</td></tr>
+<tr><th colspan="4">MultipleWindowsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.MultipleWindowsTest</td><td><a href="#m13"><b>multipleWindowsHandling</b>  </a></td><td class="numi">1</td><td>1611580796287</td><td class="numi">24725</td></tr>
+<tr><th colspan="4">ProgressBarsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.ProgressBarsTest</td><td><a href="#m14"><b>progressBars</b>  </a></td><td class="numi">1</td><td>1611580822265</td><td class="numi">33835</td></tr>
+<tr><th colspan="4">SliderBarsTest &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.seleniumeasy.ui.testscripts.SliderBarsTest</td><td><a href="#m15"><b>setSlidersToFifty</b>  </a></td><td class="numi">1</td><td>1611580856828</td><td class="numi">18025</td></tr>
 </table>
-<h1>Default test</h1>
-<h2 id="m1">com.seleniumeasy.ui.testscripts.JQueryDatePickerTest:selectDates</h2>
+<h1>CreateBooking</h1>
+<h2 id="m1">com.seleniumeasy.api.testscripts.CreateBooking:createBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m2">com.seleniumeasy.api.testscripts.CreateBooking:createBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>GetBooking</h1>
+<h2 id="m3">com.seleniumeasy.api.testscripts.GetBooking:getBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m4">com.seleniumeasy.api.testscripts.GetBooking:getBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>UpdateBooking</h1>
+<h2 id="m5">com.seleniumeasy.api.testscripts.UpdateBooking:updateBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m6">com.seleniumeasy.api.testscripts.UpdateBooking:updateBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>DeleteBooking</h1>
+<h2 id="m7">com.seleniumeasy.api.testscripts.DeleteBooking:deleteBookingTestNegative</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h2 id="m8">com.seleniumeasy.api.testscripts.DeleteBooking:deleteBookingTest</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>AjaxFormSubmitTest</h1>
+<h2 id="m9">com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest:ajaxFormSubmit</h2>
+<div style="padding-left:3em">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at com.seleniumeasy.ui.testobjects.AjaxFormPage.VerifyIfSpinnerIsDisplayed(AjaxFormPage.java:65)
+<br/>at com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest.ajaxFormSubmit(AjaxFormSubmitTest.java:78)
+<br/>25 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>FileDownloadTest</h1>
+<h2 id="m10">com.seleniumeasy.ui.testscripts.FileDownloadTest:fileDownload</h2>
+<div style="padding-left:3em">
+<p>expected [true] but found [false]</p>
+org.testng.Assert.fail(Assert.java:94)
+<br/>at org.testng.Assert.failNotEquals(Assert.java:494)
+<br/>at org.testng.Assert.assertTrue(Assert.java:42)
+<br/>at org.testng.Assert.assertTrue(Assert.java:52)
+<br/>at com.seleniumeasy.ui.testobjects.FileDownloadPage.readAndVerifyDownloadedTextFile(FileDownloadPage.java:65)
+<br/>at com.seleniumeasy.ui.testscripts.FileDownloadTest.fileDownload(FileDownloadTest.java:81)
+<br/>25 lines not shown
+</div>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>JavascriptAlertsTest</h1>
+<h2 id="m11">com.seleniumeasy.ui.testscripts.JavascriptAlertsTest:javascriptAlertsHandling</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>JQueryDatePickerTest</h1>
+<h2 id="m12">com.seleniumeasy.ui.testscripts.JQueryDatePickerTest:selectDates</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>MultipleWindowsTest</h1>
+<h2 id="m13">com.seleniumeasy.ui.testscripts.MultipleWindowsTest:multipleWindowsHandling</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>ProgressBarsTest</h1>
+<h2 id="m14">com.seleniumeasy.ui.testscripts.ProgressBarsTest:progressBars</h2>
+<p class="totop"><a href="#summary">back to summary</a></p>
+<h1>SliderBarsTest</h1>
+<h2 id="m15">com.seleniumeasy.ui.testscripts.SliderBarsTest:setSlidersToFifty</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

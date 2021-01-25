@@ -3,23 +3,23 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.seleniumeasy.ui.testscripts.JQueryDatePickerTest">
+      <class name="com.seleniumeasy.ui.testscripts.MultipleWindowsTest">
         <methods>
-          <include name="oneTimeSetup"/>
-          <include name="afterMethod"/>
-          <include name="beforeSuite"/>
-          <include name="setup"/>
-          <include name="afterTest"/>
-          <include name="selectDates"/>
-          <include name="beforeMethod"/>
           <include name="afterClassScript"/>
+          <include name="afterMethod"/>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="afterTest"/>
+          <include name="beforeMethod"/>
           <include name="beforeClass"/>
           <include name="beforeTest"/>
-          <include name="tearDown"/>
           <include name="afterSuite"/>
+          <include name="oneTimeSetup"/>
+          <include name="multipleWindowsHandling"/>
+          <include name="setup"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- com.seleniumeasy.ui.testscripts.JQueryDatePickerTest -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.MultipleWindowsTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

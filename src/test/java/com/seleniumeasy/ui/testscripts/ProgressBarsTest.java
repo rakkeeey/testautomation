@@ -49,7 +49,7 @@ public class ProgressBarsTest extends WebUIBaseTest {
 	public void progressBars() throws Exception {
 
 		Global.sScriptName = "progressBars";
-		Global.useCaseName = "TC_03_Progress Bars";
+		Global.useCaseName = "UI_TC_03_Progress Bars";
 		Global.useCaseDescription = "Verify it proceeds till 100% and lo the Total time taken for download (in seconds)";
 		Global.curHighLight = true;
 		Global.curHeading = "Calculate Download Bar Progress Time";
@@ -88,20 +88,5 @@ public class ProgressBarsTest extends WebUIBaseTest {
 
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-		Global.sScriptName = "afterClassScript";
-		Global.useCaseName = "After Class Script";
-		Global.useCaseDescription = "";
-		Global.curHighLight = true;
-		Global.curHeading = "Stop script";
-		Global.ER = "Succesful execution of after suite method";
-		Global.EAR = "After suite method executed successfully";
-		Global.UEAR = "After suite method failed to execute";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
 	}
 }

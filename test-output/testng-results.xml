@@ -1,29 +1,361 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="2" total="15" passed="13">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="50981" started-at="2021-01-25T12:06:18Z" finished-at="2021-01-25T12:07:09Z">
+  <suite name="AutomationTest" duration-ms="289034" started-at="2021-01-25T13:16:26Z" finished-at="2021-01-25T13:21:15Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="50981" started-at="2021-01-25T12:06:18Z" finished-at="2021-01-25T12:07:09Z">
-      <class name="com.seleniumeasy.ui.testscripts.JQueryDatePickerTest">
-        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="beforeSuite" is-config="true" duration-ms="18" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
+    <test name="CreateBooking" duration-ms="5638" started-at="2021-01-25T13:16:26Z" finished-at="2021-01-25T13:16:32Z">
+      <class name="com.seleniumeasy.api.testscripts.CreateBooking">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.seleniumeasy.api.testscripts.CreateBooking@2a742aa2]" name="init" is-config="true" duration-ms="16" started-at="2021-01-25T18:46:26Z" finished-at="2021-01-25T18:46:26Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="createBookingTest()[pri:0, instance:com.seleniumeasy.api.testscripts.CreateBooking@2a742aa2]" name="createBookingTest" duration-ms="1893" started-at="2021-01-25T18:46:26Z" finished-at="2021-01-25T18:46:28Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBookingTest -->
+        <test-method status="PASS" signature="createBookingTestNegative()[pri:0, instance:com.seleniumeasy.api.testscripts.CreateBooking@2a742aa2]" name="createBookingTestNegative" duration-ms="3710" started-at="2021-01-25T18:46:28Z" finished-at="2021-01-25T18:46:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createBookingTestNegative -->
+      </class> <!-- com.seleniumeasy.api.testscripts.CreateBooking -->
+    </test> <!-- CreateBooking -->
+    <test name="GetBooking" duration-ms="20321" started-at="2021-01-25T13:16:32Z" finished-at="2021-01-25T13:16:52Z">
+      <class name="com.seleniumeasy.api.testscripts.GetBooking">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.seleniumeasy.api.testscripts.GetBooking@25af5db5]" name="init" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:32Z" finished-at="2021-01-25T18:46:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="getBookingTest()[pri:0, instance:com.seleniumeasy.api.testscripts.GetBooking@25af5db5]" name="getBookingTest" duration-ms="19123" started-at="2021-01-25T18:46:32Z" finished-at="2021-01-25T18:46:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBookingTest -->
+        <test-method status="PASS" signature="getBookingTestNegative()[pri:0, instance:com.seleniumeasy.api.testscripts.GetBooking@25af5db5]" name="getBookingTestNegative" duration-ms="1172" started-at="2021-01-25T18:46:51Z" finished-at="2021-01-25T18:46:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getBookingTestNegative -->
+      </class> <!-- com.seleniumeasy.api.testscripts.GetBooking -->
+    </test> <!-- GetBooking -->
+    <test name="UpdateBooking" duration-ms="2135" started-at="2021-01-25T13:16:52Z" finished-at="2021-01-25T13:16:54Z">
+      <class name="com.seleniumeasy.api.testscripts.UpdateBooking">
+        <test-method status="PASS" signature="updateBookingTest()[pri:0, instance:com.seleniumeasy.api.testscripts.UpdateBooking@7b69c6ba]" name="updateBookingTest" duration-ms="1140" started-at="2021-01-25T18:46:52Z" finished-at="2021-01-25T18:46:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateBookingTest -->
+        <test-method status="PASS" signature="init()[pri:0, instance:com.seleniumeasy.api.testscripts.UpdateBooking@7b69c6ba]" name="init" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:52Z" finished-at="2021-01-25T18:46:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="updateBookingTestNegative()[pri:0, instance:com.seleniumeasy.api.testscripts.UpdateBooking@7b69c6ba]" name="updateBookingTestNegative" duration-ms="979" started-at="2021-01-25T18:46:53Z" finished-at="2021-01-25T18:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateBookingTestNegative -->
+      </class> <!-- com.seleniumeasy.api.testscripts.UpdateBooking -->
+    </test> <!-- UpdateBooking -->
+    <test name="DeleteBooking" duration-ms="2852" started-at="2021-01-25T13:16:54Z" finished-at="2021-01-25T13:16:57Z">
+      <class name="com.seleniumeasy.api.testscripts.DeleteBooking">
+        <test-method status="PASS" signature="init()[pri:0, instance:com.seleniumeasy.api.testscripts.DeleteBooking@1e7c7811]" name="init" is-config="true" duration-ms="10" started-at="2021-01-25T18:46:54Z" finished-at="2021-01-25T18:46:54Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="deleteBookingTest()[pri:0, instance:com.seleniumeasy.api.testscripts.DeleteBooking@1e7c7811]" name="deleteBookingTest" duration-ms="1525" started-at="2021-01-25T18:46:54Z" finished-at="2021-01-25T18:46:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteBookingTest -->
+        <test-method status="PASS" signature="deleteBookingTestNegative()[pri:0, instance:com.seleniumeasy.api.testscripts.DeleteBooking@1e7c7811]" name="deleteBookingTestNegative" duration-ms="1309" started-at="2021-01-25T18:46:56Z" finished-at="2021-01-25T18:46:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteBookingTestNegative -->
+      </class> <!-- com.seleniumeasy.api.testscripts.DeleteBooking -->
+    </test> <!-- DeleteBooking -->
+    <test name="AjaxFormSubmitTest" duration-ms="28041" started-at="2021-01-25T13:16:57Z" finished-at="2021-01-25T13:17:25Z">
+      <class name="com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="beforeMethod" is-config="true" duration-ms="16" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:46:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest.ajaxFormSubmit() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:46:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:46:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:46:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- oneTimeSetup -->
-        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="beforeMethod" is-config="true" duration-ms="2" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
+        <test-method status="FAIL" signature="ajaxFormSubmit()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="ajaxFormSubmit" duration-ms="27291" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:47:24Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.seleniumeasy.ui.testobjects.AjaxFormPage.VerifyIfSpinnerIsDisplayed(AjaxFormPage.java:65)
+	at com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest.ajaxFormSubmit(AjaxFormSubmitTest.java:78)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ajaxFormSubmit -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:46:57Z" finished-at="2021-01-25T18:46:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:24Z" finished-at="2021-01-25T18:47:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest.ajaxFormSubmit() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:24Z" finished-at="2021-01-25T18:47:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="AfterTestScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="AfterTestScript" is-config="true" duration-ms="734" started-at="2021-01-25T18:47:24Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AfterTestScript -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest@612679d6]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.AjaxFormSubmitTest -->
+    </test> <!-- AjaxFormSubmitTest -->
+    <test name="FileDownloadTest" duration-ms="98764" started-at="2021-01-25T13:17:25Z" finished-at="2021-01-25T13:19:04Z">
+      <class name="com.seleniumeasy.ui.testscripts.FileDownloadTest">
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.FileDownloadTest.fileDownload() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="FAIL" signature="fileDownload()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="fileDownload" duration-ms="98039" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:49:03Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at com.seleniumeasy.ui.testobjects.FileDownloadPage.readAndVerifyDownloadedTextFile(FileDownloadPage.java:65)
+	at com.seleniumeasy.ui.testscripts.FileDownloadTest.fileDownload(FileDownloadTest.java:81)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
+	at org.testng.TestNG.run(TestNG.java:1031)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- fileDownload -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:47:25Z" finished-at="2021-01-25T18:47:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="afterMethod" is-config="true" duration-ms="6" started-at="2021-01-25T18:49:03Z" finished-at="2021-01-25T18:49:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.FileDownloadTest.fileDownload() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:03Z" finished-at="2021-01-25T18:49:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="afterClassScript" is-config="true" duration-ms="719" started-at="2021-01-25T18:49:03Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassScript -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.FileDownloadTest@66d1af89]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.FileDownloadTest -->
+    </test> <!-- FileDownloadTest -->
+    <test name="JavascriptAlertsTest" duration-ms="16567" started-at="2021-01-25T13:19:04Z" finished-at="2021-01-25T13:19:20Z">
+      <class name="com.seleniumeasy.ui.testscripts.JavascriptAlertsTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="javascriptAlertsHandling()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="javascriptAlertsHandling" duration-ms="15052" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- javascriptAlertsHandling -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:04Z" finished-at="2021-01-25T18:49:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.JavascriptAlertsTest.javascriptAlertsHandling() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="tearDown" is-config="true" duration-ms="2" started-at="2021-01-25T18:49:19Z" finished-at="2021-01-25T18:49:19Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-01-25T18:49:19Z" finished-at="2021-01-25T18:49:19Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.JavascriptAlertsTest.javascriptAlertsHandling() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="afterClassScript" is-config="true" duration-ms="1494" started-at="2021-01-25T18:49:19Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassScript -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JavascriptAlertsTest@3ecd23d9]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.JavascriptAlertsTest -->
+    </test> <!-- JavascriptAlertsTest -->
+    <test name="JQueryDatePickerTest" duration-ms="35343" started-at="2021-01-25T13:19:20Z" finished-at="2021-01-25T13:19:56Z">
+      <class name="com.seleniumeasy.ui.testscripts.JQueryDatePickerTest">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="beforeClass" is-config="true" duration-ms="1" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="selectDates()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="selectDates" duration-ms="34616" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- selectDates -->
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:20Z" finished-at="2021-01-25T18:49:20Z">
           <params>
             <param index="0">
               <value>
@@ -34,15 +366,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="selectDates()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="selectDates" duration-ms="50176" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:37:08Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:55Z" finished-at="2021-01-25T18:49:55Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- selectDates -->
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T17:36:18Z" finished-at="2021-01-25T17:36:18Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-01-25T17:37:08Z" finished-at="2021-01-25T17:37:08Z">
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="afterMethod" is-config="true" duration-ms="6" started-at="2021-01-25T18:49:55Z" finished-at="2021-01-25T18:49:55Z">
           <params>
             <param index="0">
               <value>
@@ -53,27 +381,213 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T17:37:08Z" finished-at="2021-01-25T17:37:08Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="afterClassScript" is-config="true" duration-ms="785" started-at="2021-01-25T17:37:08Z" finished-at="2021-01-25T17:37:09Z">
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="afterClassScript" is-config="true" duration-ms="716" started-at="2021-01-25T18:49:55Z" finished-at="2021-01-25T18:49:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClassScript -->
-        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T17:37:09Z" finished-at="2021-01-25T17:37:09Z">
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T17:37:09Z" finished-at="2021-01-25T17:37:09Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@8e24743]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.seleniumeasy.ui.testscripts.JQueryDatePickerTest@a67c67e]" name="afterSuite" is-config="true" duration-ms="1" started-at="2021-01-25T17:37:09Z" finished-at="2021-01-25T17:37:09Z">
+      </class> <!-- com.seleniumeasy.ui.testscripts.JQueryDatePickerTest -->
+    </test> <!-- JQueryDatePickerTest -->
+    <test name="MultipleWindowsTest" duration-ms="25965" started-at="2021-01-25T13:19:56Z" finished-at="2021-01-25T13:20:22Z">
+      <class name="com.seleniumeasy.ui.testscripts.MultipleWindowsTest">
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.MultipleWindowsTest.multipleWindowsHandling() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="multipleWindowsHandling()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="multipleWindowsHandling" duration-ms="24725" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:50:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- multipleWindowsHandling -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:49:56Z" finished-at="2021-01-25T18:49:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:21Z" finished-at="2021-01-25T18:50:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="afterMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:21Z" finished-at="2021-01-25T18:50:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.MultipleWindowsTest.multipleWindowsHandling() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="afterClassScript" is-config="true" duration-ms="1240" started-at="2021-01-25T18:50:21Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassScript -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.MultipleWindowsTest@51c8530f]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.MultipleWindowsTest -->
+    </test> <!-- MultipleWindowsTest -->
+    <test name="ProgressBarsTest" duration-ms="34576" started-at="2021-01-25T13:20:22Z" finished-at="2021-01-25T13:20:56Z">
+      <class name="com.seleniumeasy.ui.testscripts.ProgressBarsTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.ProgressBarsTest.progressBars() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="progressBars()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="progressBars" duration-ms="33835" started-at="2021-01-25T18:50:22Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- progressBars -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.ProgressBarsTest.progressBars() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="afterClassScript" is-config="true" duration-ms="727" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassScript -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.ProgressBarsTest@2de8284b]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.ProgressBarsTest -->
+    </test> <!-- ProgressBarsTest -->
+    <test name="SliderBarsTest" duration-ms="18738" started-at="2021-01-25T13:20:56Z" finished-at="2021-01-25T13:21:15Z">
+      <class name="com.seleniumeasy.ui.testscripts.SliderBarsTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="beforeSuite" is-config="true" duration-ms="15" started-at="2021-01-25T18:46:26Z" finished-at="2021-01-25T18:46:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="setSlidersToFifty()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="setSlidersToFifty" duration-ms="18025" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:51:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setSlidersToFifty -->
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="setup" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="beforeMethod" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.SliderBarsTest.setSlidersToFifty() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="oneTimeSetup()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="oneTimeSetup" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- oneTimeSetup -->
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="beforeTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="beforeClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:50:56Z" finished-at="2021-01-25T18:50:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method status="PASS" signature="afterMethod(java.lang.reflect.Method)[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="afterMethod" is-config="true" duration-ms="1" started-at="2021-01-25T18:51:14Z" finished-at="2021-01-25T18:51:14Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.seleniumeasy.ui.testscripts.SliderBarsTest.setSlidersToFifty() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="tearDown" is-config="true" duration-ms="0" started-at="2021-01-25T18:51:14Z" finished-at="2021-01-25T18:51:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="afterClassScript()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="afterClassScript" is-config="true" duration-ms="709" started-at="2021-01-25T18:51:14Z" finished-at="2021-01-25T18:51:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClassScript -->
+        <test-method status="PASS" signature="afterClass()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="afterClass" is-config="true" duration-ms="0" started-at="2021-01-25T18:51:15Z" finished-at="2021-01-25T18:51:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="afterTest" is-config="true" duration-ms="0" started-at="2021-01-25T18:51:15Z" finished-at="2021-01-25T18:51:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterTest -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:com.seleniumeasy.ui.testscripts.SliderBarsTest@6ec8211c]" name="afterSuite" is-config="true" duration-ms="0" started-at="2021-01-25T18:51:15Z" finished-at="2021-01-25T18:51:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- com.seleniumeasy.ui.testscripts.JQueryDatePickerTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.seleniumeasy.ui.testscripts.SliderBarsTest -->
+    </test> <!-- SliderBarsTest -->
+  </suite> <!-- AutomationTest -->
 </testng-results>

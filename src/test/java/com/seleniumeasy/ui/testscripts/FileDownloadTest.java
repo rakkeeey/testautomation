@@ -49,7 +49,7 @@ public class FileDownloadTest extends WebUIBaseTest {
 	public void fileDownload() throws Exception {
 
 		Global.sScriptName = "fileDownload";
-		Global.useCaseName = "TC_07_File Download And Verify";
+		Global.useCaseName = "UI_TC_07_File Download And Verify";
 		Global.useCaseDescription = "Verify file download anf if the content in the file matches with the content entered";
 		Global.curHighLight = true;
 		Global.curHeading = "Verify File Download";
@@ -84,24 +84,7 @@ public class FileDownloadTest extends WebUIBaseTest {
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
-
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-		Global.sScriptName = "afterClassScript";
-		Global.useCaseName = "After Class Script";
-		Global.useCaseDescription = "";
-		Global.curHighLight = true;
-		Global.curHeading = "Stop script";
-		Global.ER = "Succesful execution of after suite method";
-		Global.EAR = "After suite method executed successfully";
-		Global.UEAR = "After suite method failed to execute";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-
 	}
 }

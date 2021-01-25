@@ -51,7 +51,7 @@ public class JavascriptAlertsTest extends WebUIBaseTest {
 	public void javascriptAlertsHandling() throws Exception {
 
 		Global.sScriptName = "javascriptAlertsHandling";
-		Global.useCaseName = "TC_06_Javascript Alerts Handling";
+		Global.useCaseName = "UI_TC_06_Javascript Alerts Handling";
 		Global.useCaseDescription = "Verify if the Javascript alert is shown and close the alert";
 		Global.curHighLight = true;
 		Global.curHeading = "Handle Javascript Alerts";
@@ -79,29 +79,13 @@ public class JavascriptAlertsTest extends WebUIBaseTest {
 		javascriptalerts.clickjavascriptAlertsLink();
 		javascriptalerts.clickClickMeButton();
 		javascriptalerts.handleAlerts();
-		
-
+	
 	}
 
 	@AfterClass(alwaysRun = true)
 	public static void afterClassScript() throws Exception {
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
-		Global.sScriptName = "afterClassScript";
-		Global.useCaseName = "After Class Script";
-		Global.useCaseDescription = "";
-		Global.curHighLight = true;
-		Global.curHeading = "Stop script";
-		Global.ER = "Succesful execution of after suite method";
-		Global.EAR = "After suite method executed successfully";
-		Global.UEAR = "After suite method failed to execute";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
 
 	}
 }
