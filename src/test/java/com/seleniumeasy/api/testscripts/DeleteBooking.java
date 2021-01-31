@@ -41,6 +41,7 @@ public class DeleteBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Status code verification ", "Status code not received as expected",
 					"Status code should be received as expected");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Status code verification ",
 				"Status code received as expected :" + response.getStatusLine().getStatusCode(),
@@ -57,7 +58,6 @@ public class DeleteBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Deletion of Booking ID",
 					"Failed to delete booking ID is " + createdBookingId, "User should be able to delete a booking ID");
-
 			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Deletion of Booking ID",

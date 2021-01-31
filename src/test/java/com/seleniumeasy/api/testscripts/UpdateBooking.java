@@ -47,6 +47,7 @@ public class UpdateBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Status code verification ", "Status code not received as expected",
 					"Status code should be received as expected");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Status code verification ",
 				"Status code received as expected :" + response.getStatusLine().getStatusCode(),
@@ -64,6 +65,7 @@ public class UpdateBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Updating Booking ID", "Failed to update a booking",
 					"User should be able to update a booking");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Updating Booking ID",
 				"Successfully updated booking ID is " + createdBookingId + " and Updated data is "
@@ -100,6 +102,7 @@ public class UpdateBooking extends ApiBaseBooking {
 			ReportUtility.reportingResults("Fail", "Booking updated",
 					"Received response code is " + response.getStatusLine().getStatusCode(),
 					"User should not be able to update Booking details without authorization key");
+			throw e;
 		}
 
 		ReportUtility.reportingResults("Pass", "Booking not updated",

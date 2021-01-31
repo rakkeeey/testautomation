@@ -43,6 +43,7 @@ public class GetBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Status code verification ", "Status code not received as expected",
 					"Status code should be received as expected");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Status code verification ",
 				"Status code received as expected :" + response.getStatusLine().getStatusCode(),
@@ -59,6 +60,7 @@ public class GetBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Fetching Booking Details", "Failed to fetch booking for User ",
 					"User should be able to get Booking details");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass",
 				"Fetching Booking Details", "Successfully fetched booking is for User " + entity.getFirstname() + " "
@@ -93,6 +95,7 @@ public class GetBooking extends ApiBaseBooking {
 			ReportUtility.reportingResults("Fail", "Booking fetched",
 					"Received success response code is " + response.getStatusLine().getStatusCode(),
 					"User should not be able to retrieve Booking details for invalid Id");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "Booking not fetched",
 				"Received failure response code is " + response.getStatusLine().getStatusCode(),

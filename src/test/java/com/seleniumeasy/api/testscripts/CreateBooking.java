@@ -46,6 +46,7 @@ public class CreateBooking extends ApiBaseBooking {
 		} catch (AssertionError e) {
 			ReportUtility.reportingResults("Fail", "Status code verification ", "Status code not received as expected",
 					"Status code should be received as expected");
+			throw e;
 		}
 
 		ReportUtility.reportingResults("Pass", "Status code verification ",
