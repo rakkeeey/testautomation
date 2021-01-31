@@ -3,13 +3,19 @@ package com.seleniumeasy.framework.reporting;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
 
+/**
+ * Custom Exception for the framework
+ * 
+ * @author Rakesh
+ *
+ */
 public class FrameworkException extends Exception {
 		
 	private static final long serialVersionUID = 1L;
 	private static Log logger = new Log4JLogger("FrameworkException");
 
 	public FrameworkException() {
-
+		super();
 	}
 
 	public FrameworkException(String message) {
@@ -34,8 +40,6 @@ public class FrameworkException extends Exception {
 		logger.error("Message :"+exception.getMessage());
 		logger.error("Cause :"+exception.getCause());
 		logger.error("ExceptionType: " +exception.toString());
-		//exception.printStackTrace();
-		//logger.error("");
 		logger.error("====================================================================================================================");
 	}
 }

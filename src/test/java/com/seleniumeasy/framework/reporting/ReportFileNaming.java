@@ -1,20 +1,19 @@
 package com.seleniumeasy.framework.reporting;
 
 import java.util.Calendar;
-import java.util.Map;
-import java.awt.*;
-import java.awt.event.*;
 
-@SuppressWarnings("unused")
-public class Application 
+/**
+ * This generates Unique Report name
+ * 
+ * @author Rakesh
+ *
+ */
+public class ReportFileNaming 
 {
 	/**
-	 * Purpose:Create Unique report Name by appending timeStamp
+	 * Create Unique report Name by appending timeStamp
 	 * @param String sReportName
 	 * @return String
-	 * @author Rakesh 
-	 * Authored Date:
-	 * Modification Date:
 	 */
 	public static String getUniqueReportName(String sReportName) {
 		Calendar rightNow = Calendar.getInstance();

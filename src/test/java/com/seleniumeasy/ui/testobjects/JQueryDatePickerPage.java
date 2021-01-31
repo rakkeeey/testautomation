@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.PageAction;
 
 public class JQueryDatePickerPage extends PageAction {
@@ -107,7 +107,7 @@ public class JQueryDatePickerPage extends PageAction {
 		monthLeftNavigation.click();
 		Assert.assertTrue(!defaultItems.equals("Dec"));
 		Assert.assertEquals(yearLabel.getText(), year);
-		Utility.reportingResults("Pass", "verify you should not be able to select To date beyond Feb 1",
+		ReportUtility.reportingResults("Pass", "verify you should not be able to select To date beyond Feb 1",
 				"User is not able to select To Date beyond Feb 1",
 				"User should not able to select To Date beyond Feb 1");
 
@@ -135,7 +135,7 @@ public class JQueryDatePickerPage extends PageAction {
 		for (int i = 2; i <= 28; i++) {
 			Assert.assertFalse(isElementPresent((By.linkText(Integer.toString(i)))));
 		}
-		Utility.reportingResults("Pass", "verify you should not be able to select From date beyond Jan 1",
+		ReportUtility.reportingResults("Pass", "verify you should not be able to select From date beyond Jan 1",
 				"User is not able to select From date beyond Jan 1",
 				"User should not able to select From date beyond Jan 1");
 	}

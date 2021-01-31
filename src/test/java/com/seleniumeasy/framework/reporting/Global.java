@@ -40,6 +40,6 @@ public class Global
 	public static String PEAR="";
 	public static String PUEAR="";
 
-	public static String sFilePath = Constants.sReportFolderPath + Utility.getSlashType()
-	+Application.getUniqueReportName("TestAutomationReport")+".html";
+	public static String sFilePath = ReportConstants.sReportFolderPath + ReportUtility.getSlashType()
+	+ReportFileNaming.getUniqueReportName("TestAutomationReport")+".html";
 }

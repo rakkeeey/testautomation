@@ -18,6 +18,13 @@ import com.seleniumeasy.api.testobjects.BookingDateVo;
 import com.seleniumeasy.api.testobjects.BookingVo;
 import com.seleniumeasy.framework.config.Property;
 
+/**
+ * This can be used as Parent Class 
+ * to set-up initial Test cases
+ * 
+ * @author Rakesh
+ * @version 1.0
+ */
 public class ApiBaseBooking {
 	
 	protected static String createdBookingId = "";
@@ -52,6 +59,5 @@ public class ApiBaseBooking {
 		headerMap.put(HttpHeaders.ACCEPT, "application/json");
 		logger.info("*****DONE SETUP****");
 	}
-
-
+		
 }

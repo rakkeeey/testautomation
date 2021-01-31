@@ -13,21 +13,17 @@ import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.ui.testobjects.AjaxFormPage;
 import com.seleniumeasy.ui.testobjects.FileDownloadPage;
 import com.seleniumeasy.ui.testobjects.MultipleWindowsPage;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class FileDownloadTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 	private static MultipleWindowsPage multiplewindows;
 	private static FileDownloadPage filedownload;
 
 	public FileDownloadTest() throws FileNotFoundException, IOException {
 		logger = new Log4JLogger("AjaxFormPageLogger");
-		// TODO Auto-generated constructor stub
 	}
 
 	@BeforeClass(alwaysRun = true)
@@ -48,28 +44,14 @@ public class FileDownloadTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void fileDownload() throws Exception {
 
-		Global.sScriptName = "fileDownload";
-		Global.useCaseName = "UI_TC_07_File Download And Verify";
-		Global.useCaseDescription = "Verify file download anf if the content in the file matches with the content entered";
-		Global.curHighLight = true;
-		Global.curHeading = "Verify File Download";
-		Global.ER = "Succesful verification of downloaded file";
-		Global.EAR = "Downloaded file and verified the same successfully";
-		Global.UEAR = "Failed to download the file";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("fileDownload", "UI_TC_07_File Download And Verify",
+				"Verify file download anf if the content in the file matches with the content entered",
+				"Verify File Download", "Succesful verification of downloaded file",
+				"Downloaded file and verified the same successfully", "Failed to download the file");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		filedownload = new FileDownloadPage();
-		currentTime = pageAction.getCurrentTimestamp();
 		multiplewindows = new MultipleWindowsPage();
 		multiplewindows.waitForElement(By.linkText(multiplewindows.alertsAndModalsLinkk));
 		ajaxform.CloseAdPopupIfDisplayed();
@@ -79,7 +61,7 @@ public class FileDownloadTest extends WebUIBaseTest {
 		filedownload.clickCreateButton();
 		filedownload.clickLinkToDownload();
 		filedownload.readAndVerifyDownloadedTextFile();
-		
+
 	}
 
 	@AfterClass(alwaysRun = true)

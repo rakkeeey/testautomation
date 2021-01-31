@@ -7,14 +7,13 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.time.StopWatch;
-import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -27,28 +26,29 @@ import org.testng.Assert;
 
 import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.framework.reporting.FrameworkException;
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 
-public class PageAction extends SeleniumBrowser{
-	public Log logger;
+/**
+ * This has the Wrapper Methods to perform actions in UI
+ * 
+ * @author Rakesh
+ *
+ */
+public class PageAction extends SeleniumBrowser {
+
 	JavascriptExecutor jsExe;
-	public WebDriverWait wait = new WebDriverWait(SeleniumBrowser.driver,TIMEOUT);
-	public StopWatch sw; 
-	
+	public WebDriverWait wait = new WebDriverWait(SeleniumBrowser.driver, TIMEOUT);
+	public StopWatch sw;
+
 	// Seconds to wait for timeout
 	public static final int TIMEOUT = 60;
-	/**
-	 * @throws IOException
-	 * @throws FileNotFoundException
-	 * 
-	 */
+
 	public PageAction() throws FileNotFoundException, IOException {
 		jsExe = (JavascriptExecutor) SeleniumBrowser.driver;
 		logger = new Log4JLogger("PageAction");
 		sw = new StopWatch();
+	}
 
-	} 
-	
 	public void readAndVerifyDownloadedTextFile(String fileLocation, String ExpectedText) throws Exception {
 
 		BufferedReader br = new BufferedReader(new FileReader(fileLocation));
@@ -62,9 +62,17 @@ public class PageAction extends SeleniumBrowser{
 				line = br.readLine();
 			}
 			String everything = sb.toString().trim();
-			logger.info("The content present in the file is " + everything);
-			Assert.assertTrue(everything.equals(ExpectedText));
-			Utility.reportingResults("Pass", "Content of the file",
+			logger.debug("The content present in the file is " + everything);
+
+			try {
+				Assert.assertTrue(everything.equals(ExpectedText));
+			} catch (AssertionError e) {
+				ReportUtility.reportingResults("Fail", "Content of the file",
+						"The content present in the file is " + everything,
+						"Content in the file and input provided by the user should be the same");
+				throw e;
+			}
+			ReportUtility.reportingResults("Pass", "Content of the file",
 					"The content present in the file is " + everything,
 					"Content in the file and input provided by the user should be the same");
 		} finally {
@@ -72,79 +80,76 @@ public class PageAction extends SeleniumBrowser{
 		}
 
 	}
+
 	public void datePicker(String date, String month, String year) {
 		try {
-		Actions a = new Actions(driver);
-		Assert.assertEquals(driver.findElement(By.cssSelector(".ui-datepicker-year")).getText(), year);
-		Select MonthOne = new Select(driver.findElement(By.cssSelector(".ui-datepicker-month")));
-		MonthOne.selectByVisibleText(month);
-		Thread.sleep(2000);
-		a.moveToElement(driver.findElement(By.linkText(date))).click().build().perform();
-		Utility.reportingResults("Pass", "Select Date",
-				"Successfully selected the date "+ date+"-"+month+"-"+ year,
-				"User should be able to select the date");
-	} catch (Exception exception) {
-		Utility.reportingResults("Fail", "Select Date",
-				"Failed to select the date "+ date+"-"+month+"-"+ year,
-				"User should be able to select the date");
-		new FrameworkException(exception, "SeleniumDriver:set()");
+			Actions a = new Actions(driver);
+			Assert.assertEquals(driver.findElement(By.cssSelector(".ui-datepicker-year")).getText(), year);
+			Select MonthOne = new Select(driver.findElement(By.cssSelector(".ui-datepicker-month")));
+			MonthOne.selectByVisibleText(month);
+			Thread.sleep(2000);
+			a.moveToElement(driver.findElement(By.linkText(date))).click().build().perform();
+			ReportUtility.reportingResults("Pass", "Select Date",
+					"Successfully selected the date " + date + "-" + month + "-" + year,
+					"User should be able to select the date");
+		} catch (Exception exception) {
+			ReportUtility.reportingResults("Fail", "Select Date",
+					"Failed to select the date " + date + "-" + month + "-" + year,
+					"User should be able to select the date");
+			new FrameworkException(exception, "datePicker");
+		}
 	}
-	}
-	
+
 	public boolean isAlertPresentAndAcceptAlert() throws InterruptedException {
 		try {
 			Thread.sleep(2000);
 			Alert alert = driver.switchTo().alert();
 			alert.accept();
-			Utility.reportingResults("Pass", "Verify if The javascript alert is shown and handled by the script" ,
-					"Java script alert is shown and accepted by the script " ,
-					"The javascript alert should be shown and handled by the script" );
+
 			return true;
-		} catch (NoAlertPresentException Ex) {
-			Utility.reportingResults("Fail", "Verify if The javascript alert is shown and handled by the script" ,
-					"Java script alert is not shown and not accepted by the script " ,
-					"The javascript alert should be shown and handled by the script");
+		} catch (Exception exception) {
+			new FrameworkException(exception, "isAlertPresentAndAcceptAlert");
 			return false;
 		}
 	}
-	
-	public void assertTruePercentage(WebElement Element, String Expected) {
 
+	public void assertTruePercentage(WebElement Element, String Expected) {
+		
 		try {
 			Assert.assertTrue(Element.getText().contains(Expected));
-			Utility.reportingResults("Pass", "The expected download percentage is" + Expected,
-					"Displayed download and expected download percentage is equal to " + Expected,
+
+		} catch (AssertionError e) {
+			ReportUtility.reportingResults("Fail", "The expected download percentage is" + Expected,
+					"Displayed download and expected download percentage is not equal" ,
 					"Displayed download and expected download percentage should be  equal to " + Expected);
-		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "The expected download percentage is" + Expected,
-					"Displayed download and expected download percentage is equal to " + Expected,
-					"Displayed download and expected download percentage should be  equal to " + Expected);
-			new FrameworkException(exception, "SeleniumDriver:select(" + Expected + ")");
+			throw e;
 		}
+		ReportUtility.reportingResults("Pass", "Verify if the expected slide range is" + Expected,
+				"Displayed slide range and expected slider range is equal to " + Expected,
+				"Displayed slide range and expected slider range should be  equal to " + Expected);
 
 	}
-	
+
 	public void assertRangeSliderPositions(WebElement Element, String Expected) {
 
 		try {
 			Assert.assertTrue(Element.getText().contains(Expected));
-			Utility.reportingResults("Pass", "Verify if the expected slide range is" + Expected,
-					"Displayed slide range and expected slider range is equal to " + Expected,
-					"Displayed slide range and expected slider range should be  equal to " + Expected);
-		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "Verify if the expected slide range is " + Expected,
+
+		} catch (AssertionError e) {
+			ReportUtility.reportingResults("Fail", "Verify if the expected slide range is " + Expected,
 					"Displayed slide range and expected slider range is not equal to " + Expected,
 					"Displayed slide range and expected slider range should be  equal to " + Expected);
-			new FrameworkException(exception, "SeleniumDriver:select(" + Expected + ")");
+			throw e;
 		}
-
+		ReportUtility.reportingResults("Pass", "Verify if the expected slide range is" + Expected,
+				"Displayed slide range and expected slider range is equal to " + Expected,
+				"Displayed slide range and expected slider range should be  equal to " + Expected);
 	}
 
 	public void startStopwatch() {
-
 		sw.start();
 	}
-	
+
 	public boolean isElementPresent(By locatorKey) {
 		try {
 			driver.findElement(locatorKey);
@@ -155,94 +160,97 @@ public class PageAction extends SeleniumBrowser{
 	}
 
 	public void stopStopwatch() throws Exception {
-
 		sw.stop();
-		Utility.reportingResults("Pass", "Calculate the time taken for the Download ",
-				"The time taken for the download progress is" + sw + " seconds",
+		ReportUtility.reportingResults("Pass", "Calculate the time taken for the Download ",
+				"The time taken for the download progress is " + sw.getTime(TimeUnit.SECONDS) + " seconds",
 				"User should be able to calculate the response time");
 	}
-	// Enter value in the text field
-	public void enterText(String fieldName, String value,WebElement element) {
+
+	/**
+	 * Enter value in the text field
+	 * 
+	 * @param fieldName
+	 * @param value
+	 * @param element
+	 */
+	public void enterText(String fieldName, String value, WebElement element) {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
 			element.clear();
 			element.sendKeys(value);
-			Utility.reportingResults("Pass", "Enter the value '" + value + "' in " + fieldName + " field",
+			ReportUtility.reportingResults("Pass", "Enter the value '" + value + "' in " + fieldName + " field",
 					"Successfully enter the value '" + value + "' in " + fieldName + " field",
 					"User should be able to enter the value");
 		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "Enter the value '" + value + "' in " + fieldName + " field",
+			ReportUtility.reportingResults("Fail", "Enter the value '" + value + "' in " + fieldName + " field",
 					"Failed to enter the value '" + value + "' in " + fieldName + " field",
 					"User should be able to enter the value");
-			new FrameworkException(exception, "SeleniumDriver:set(" + fieldName + ")");
+			new FrameworkException(exception, "enterText");
 		}
 	}
 
-	// Click a button
+	/**
+	 * To Click Button Action
+	 * 
+	 * @param fieldName
+	 * @param element
+	 */
 	public void clickButton(String fieldName, WebElement element) {
 
-		try {	
+		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
 			element.click();
-			Utility.reportingResults("Pass", "Click  '" + fieldName + "' button",
+			ReportUtility.reportingResults("Pass", "Click  '" + fieldName + "' button",
 					"Successfully clicked the '" + fieldName + "' button",
 					"User should be able to click on the button");
 		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "Click  '" + fieldName + "' button",
+			ReportUtility.reportingResults("Fail", "Click  '" + fieldName + "' button",
 					"Failed to click the '" + fieldName + "'  button", "User should be able to click on the button");
-			new FrameworkException(exception, "SeleniumDriver:click(" + fieldName + ")");
+			new FrameworkException(exception, "clickButton");
 		}
 	}
-	
+
 	public void clickButtonJS(String fieldName, WebElement element) {
 
-		try {	
+		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
-			JavascriptExecutor executor = (JavascriptExecutor)driver;
+			JavascriptExecutor executor = (JavascriptExecutor) driver;
 			executor.executeScript("arguments[0].click();", element);
-			Utility.reportingResults("Pass", "Click  '" + fieldName + "' button",
+			ReportUtility.reportingResults("Pass", "Click  '" + fieldName + "' button",
 					"Successfully clicked the '" + fieldName + "' button",
 					"User should be able to click on the button");
 		} catch (Exception exception) {
-			Utility.reportingResults("Fail", "Click  '" + fieldName + "' button",
+			ReportUtility.reportingResults("Fail", "Click  '" + fieldName + "' button",
 					"Failed to click the '" + fieldName + "'  button", "User should be able to click on the button");
-			new FrameworkException(exception, "SeleniumDriver:click(" + fieldName + ")");
+			new FrameworkException(exception, "clickButtonJS");
 		}
 	}
 
-	public static boolean isElementDisplayed(String fieldName,WebElement element) {
+	public static boolean isElementDisplayed(String fieldName, WebElement element) {
 		try {
 			WebDriverWait wait = new WebDriverWait(SeleniumBrowser.driver, 1);
-			wait.until(ExpectedConditions.visibilityOf(element));		
-			Utility.reportingResults("Pass", "Check the presence of " + fieldName + " element",
-					"Successfully checked the presence of " + fieldName + " element",
-					"User should be able to see the element");
+			wait.until(ExpectedConditions.visibilityOf(element));
 			return element.isDisplayed();
 
 		} catch (NoSuchElementException | StaleElementReferenceException | TimeoutException exception) {
-			Utility.reportingResults("Fail", "Check the presence of " + fieldName + " element",
-					"Failed to check the presence of " + fieldName + " element",
-					"User should be able to see the element");
-			new FrameworkException(exception, "SeleniumDriver:element(" + fieldName + ")");
+			new FrameworkException(exception, "isElementDisplayed");
 			return false;
 		}
 	}
 
 	/**
-	 * Wait for one element to be clickable with max time=TIMEOUT <br>
-	 * <b>Example:</b> waitForElement(By.id("submit"));
+	 * Wait for one element to be clickable with max time=TIMEOUT
 	 * 
 	 * @param name
 	 * @return
 	 */
 	public WebElement waitForElement(By name) {
-		WebElement tmp = wait.until(ExpectedConditions
-				.presenceOfElementLocated(name));
+		WebElement tmp = wait.until(ExpectedConditions.presenceOfElementLocated(name));
 		return tmp;
 	}
 
 	/**
-	 * Method to just return current timestamp
+	 * Method to return current timestamp
 	 * 
 	 * @return string timestamp
 	 */
@@ -251,5 +259,5 @@ public class PageAction extends SeleniumBrowser{
 		Calendar cal = Calendar.getInstance();
 		return dateFormat.format(cal.getTime());
 	}
-	
+
 }

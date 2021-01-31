@@ -121,25 +121,25 @@ public class TestResult {
 	public TestResult() {
 	}
 
-	// Method to create the file if not already existing
+	/**
+	 *  Method to create the file if not already existing
+	 */
 	public static void createFile() {
 		try {
 			File file = new File(Global.sFilePath);
 
-			// Create file if it does not exist
-			boolean success = file.createNewFile();
-			if (success) {
-				// File did not exist and was created
-			} else {
-				// File already exists
-			}
+			file.createNewFile();
+			
 		} catch (IOException e) {
 			logger.error(e.getMessage());
 		}
 
 	}
 
-	// Method to capture the screenshot in case of failures
+	/**
+	 *  Method to capture the screenshot in case of failures
+	 * @return String
+	 */
 	static String capturebreadCrumb() {
 		WebElement element = driver.findElement(By.id("sectionheader"));
 		if (element.isDisplayed()) {
@@ -169,7 +169,7 @@ public class TestResult {
 
 			sFileName = Global.sScriptName + "-" + (new Date().getTime());
 
-			sScreenShot = Constants.sReportFolderPath + Utility.getSlashType() + sFileName + ".jpg";
+			sScreenShot = ReportConstants.sReportFolderPath + ReportUtility.getSlashType() + sFileName + ".jpg";
 			logger.info("Screenshot : " + sScreenShot);
 			file = new File(sScreenShot);
 			ImageIO.write(image, "jpg", file);
@@ -177,17 +177,20 @@ public class TestResult {
 			sFileName = sFileName + ".jpg";
 
 		} catch (Exception e) {
+			logger.error("Exception happened ::" + e);
 		}
 		return "<a href=\"" + sFileName + "\" target=\"_blank\">" + sFileName + "</a>";
 	}
 
-	// Method to generate the HTML skeleton of the result file
+	/**
+	 *  Method to generate the HTML skeleton of the result file
+	 */
 	public static void generateHTML() {
 
 		try {
 			bResultGenerated = true;
 			createFile();
-			sOS = Utility.getOS();
+			sOS = ReportUtility.getOS();
 			sOS = sOS + " OS";
 			sBrowserType = Global.gBrowserType + " Browser";
 
@@ -203,7 +206,7 @@ public class TestResult {
 
 			out.close();
 		} catch (IOException e) {
-			e.getMessage();
+			logger.error("Exception happened ::" + e);
 		}
 	}
 
@@ -342,12 +345,6 @@ public class TestResult {
 
 							iPassCount = iPassCount + 1;
 
-							// fileContent.replace(iLeftOffset1, iRightOffset1+sConcatenate2.length(), "<div
-							// id=\"pieCanvas\" style=\"overflow: auto;
-							// position:relative;height:350px;width:380px;\"></div><script
-							// type=\"text/javascript\">var p = new
-							// pie();p.add(\"Pass\","+iPassCount+");p.add(\"Fail\","+iFailCount+");p.add(\"Blocked\","+iBlockedCount+");p.render(\"pieCanvas\",
-							// \"Pie Graph\")</script>");
 							fileContent.replace(iLeftOffset1, iRightOffset1 + sConcatenate2.length(),
 									"<div id=\"pieCanvas\" style=\"overflow: auto; position:relative;height:350px;width:380px;\"></div><script type=\"text/javascript\">var p = new pie();p.add(\"Pass\","
 											+ iPassCount + ");p.add(\"Fail\"," + iFailCount
@@ -377,12 +374,6 @@ public class TestResult {
 
 								iFailCount = iFailCount + 1;
 
-								// fileContent.replace(iLeftOffset1, iRightOffset1+sConcatenate2.length(), "<div
-								// id=\"pieCanvas\" style=\"overflow: auto;
-								// position:relative;height:350px;width:380px;\"></div><script
-								// type=\"text/javascript\">var p = new
-								// pie();p.add(\"Pass\","+iPassCount+");p.add(\"Fail\","+iFailCount+");p.add(\"Blocked\","+iBlockedCount+");p.render(\"pieCanvas\",
-								// \"Pie Graph\")</script>");
 								fileContent.replace(iLeftOffset1, iRightOffset1 + sConcatenate2.length(),
 										"<div id=\"pieCanvas\" style=\"overflow: auto; position:relative;height:350px;width:380px;\"></div><script type=\"text/javascript\">var p = new pie();p.add(\"Pass\","
 												+ iPassCount + ");p.add(\"Fail\"," + iFailCount
@@ -597,7 +588,7 @@ public class TestResult {
 			out.write(fileContent.toString());
 			out.close();
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Exception HAppened ::"+e.getMessage());
 		}
 		// ============================
 	}
@@ -620,7 +611,7 @@ public class TestResult {
 			out.write(fileContent.toString());
 			out.close();
 		} catch (Exception e) {
-			e.getMessage();
+			logger.error("Exception HAppened ::"+e.getMessage());
 		}
 	}
 
@@ -642,7 +633,7 @@ public class TestResult {
 			out.write(fileContent.toString());
 			out.close();
 		} catch (Exception e) {
-			e.getMessage();
+			logger.error("Exception HAppened ::"+e.getMessage());
 		}
 	}
 
@@ -708,7 +699,7 @@ public class TestResult {
 			out.write(fileContent.toString());
 			out.close();
 		} catch (Exception e) {
-			e.getMessage();
+			logger.error("Exception HAppened ::"+e.getMessage());
 		}
 
 		stepLevelPassCount = 0;

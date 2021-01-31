@@ -7,12 +7,13 @@ import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.PageAction;
 
 public class MultipleWindowsPage extends PageAction {
@@ -34,13 +35,13 @@ public class MultipleWindowsPage extends PageAction {
 	WebElement followTwitAndFbButton;
 
 	public void verifyOpenWindowsAndGetTitles() throws FileNotFoundException, IOException, InterruptedException {
-
+		waitForElement(By.xpath(followTwitAndFbButtonn));
 		parentWindowHandle = driver.getWindowHandle();
 		clickFollowTwitAndFacebookButton();
 		Set<String> allWindowHandles = driver.getWindowHandles();
 		int noofwindows = driver.getWindowHandles().size();
 		Assert.assertTrue(noofwindows == 3);
-		Utility.reportingResults("Pass", "The expected no of open windows are" + noofwindows,
+		ReportUtility.reportingResults("Pass", "The expected no of open windows are" + noofwindows,
 				"The no of windows opened are " + noofwindows,
 				"Opened windows and expected windows should be  equal to " + noofwindows);
 		logger.info("The no of windows opened are " + noofwindows);
@@ -50,7 +51,7 @@ public class MultipleWindowsPage extends PageAction {
 			if (!parentWindowHandle.equals(childWindowHandle)) {
 				driver.switchTo().window(childWindowHandle);
 				logger.info("Title of the active window is " + driver.switchTo().window(childWindowHandle).getTitle());
-				Utility.reportingResults("Pass",
+				ReportUtility.reportingResults("Pass",
 						"The expected title of the window is" + driver.switchTo().window(childWindowHandle).getTitle(),
 						"Title of the active window is " + driver.switchTo().window(childWindowHandle).getTitle(),
 						"The title of the window should be " + driver.switchTo().window(childWindowHandle).getTitle());
@@ -58,7 +59,7 @@ public class MultipleWindowsPage extends PageAction {
 			}
 		}
 		driver.switchTo().window(parentWindowHandle);
-		Utility.reportingResults("Pass",
+		ReportUtility.reportingResults("Pass",
 				"The expected title of the active window after closing both the popups is" + driver.getTitle(),
 				"The title of the active window after closing both the popups is " + driver.getTitle(),
 				"The title of the active window should be " + driver.getTitle());
@@ -80,16 +81,14 @@ public class MultipleWindowsPage extends PageAction {
 
 	public void clickAlertsAndModalsLink() throws FileNotFoundException, IOException {
 		clickButton("Alerts and Modals Link", alertsAndModalsLink);
-
 	}
 
 	public void clickWindowPopUpModalLink() throws FileNotFoundException, IOException, InterruptedException {
 		clickButton("Window Popup Modal Link", WindowPopUpModalLink);
-
 	}
 
 	public void clickFollowTwitAndFacebookButton() throws FileNotFoundException, IOException, InterruptedException {
-		clickButton("Follow Twitter And Facebook", followTwitAndFbButton);
+		clickButtonJS("Follow Twitter And Facebook", followTwitAndFbButton);
 	}
 
 }

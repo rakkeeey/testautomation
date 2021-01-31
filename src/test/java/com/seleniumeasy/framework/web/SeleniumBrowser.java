@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.impl.Log4JLogger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,7 +16,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import com.seleniumeasy.framework.config.Property;
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 
 public class SeleniumBrowser {
 
@@ -23,9 +25,11 @@ public class SeleniumBrowser {
 	private static String hostname;
 	public static WebDriver driver;
 	public static File folder;
+	
+	public static Log logger;
 
 	public SeleniumBrowser() throws FileNotFoundException, IOException {
-
+		logger = new Log4JLogger("SeleniumBrowser");
 		// setupSeleniumEnvironment();
 	}
 
@@ -37,10 +41,8 @@ public class SeleniumBrowser {
 	private static void setupSeleniumEnvironment() throws FileNotFoundException, IOException {
 		SeleniumBrowser.hostname = Property.getProperty("webapp.seleniumeasy.url");
 		SeleniumBrowser.os = getOSVersion();
-		// System.out.println("OS Version = " + SeleniumBrowser.os + ", os.arch = " +
-		// System.getProperty("os.arch"));
+		
 		String passedBrowser = Property.getProperty("browser");
-		// System.out.println("browser to run = " + passedBrowser);
 		if (passedBrowser != null) {
 			SeleniumBrowser.browser = passedBrowser;
 		} else {
@@ -51,7 +53,7 @@ public class SeleniumBrowser {
 
 	public static void loadURL() throws Exception {
 		driver.get(SeleniumBrowser.hostname);
-		Utility.reportingResults("Pass", "Verify if the user is able to open the URL: " + SeleniumBrowser.hostname,
+		ReportUtility.reportingResults("Pass", "Verify if the user is able to open the URL: " + SeleniumBrowser.hostname,
 				"User is able to open the URL: " + SeleniumBrowser.hostname,
 				"User should be able to access the URL: " + SeleniumBrowser.hostname);
 	}
@@ -75,7 +77,12 @@ public class SeleniumBrowser {
 		folder.delete();
 	}
 
-	// checks the browser input, and open the corresponding browser.
+	/**
+	 * Checks the browser input, and open the corresponding browser.
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 * @throws Exception
+	 */
 	public static void LaunchBrowser() throws FileNotFoundException, IOException, Exception {
 		if (browser.toLowerCase().equals("iexplore") || browser.toLowerCase().equals("ie")
 				|| browser.toLowerCase().equals("internet explorer")) {
@@ -89,10 +96,7 @@ public class SeleniumBrowser {
 					System.setProperty("webdriver.ie.driver",
 							"src\\test\\resources\\bits\\drivers\\iexplore\\IEDriverServer_win_X64.exe");
 				}
-			} else {
-				// System.out.println("Unexpected Operating System");
-
-			}
+			} 
 
 			driver = new InternetExplorerDriver();
 		} else if (browser.toLowerCase().equals("firefox") || browser.toLowerCase().equals("ff")) {
@@ -110,8 +114,6 @@ public class SeleniumBrowser {
 			} else if (os.equals("Linux") && System.getProperty("os.arch").contains("64")) {
 				System.setProperty("webdriver.chrome.driver",
 						"src//test//resources//bits//drivers//chrome//chrome_linux64");
-			} else {
-				// System.out.println("Unexpected Operating System");
 			}
 
 			// Add Chrome Preferences
@@ -121,7 +123,6 @@ public class SeleniumBrowser {
 			Map<String, Object> pref = new HashMap<String, Object>();
 			pref.put("profile.default_content_settings.popups", 0);
 			pref.put("download.default_directory", folder.getAbsolutePath());
-			// System.out.println(folder.getAbsolutePath());
 
 			options.setExperimentalOption("prefs", pref);
 			options.addArguments("--always-authorize-plugins");
@@ -135,8 +136,8 @@ public class SeleniumBrowser {
 	}
 
 	public static void printEnvInfo() {
-		System.out.println("You have selected " + System.getProperty("browser") + " as your browser. " + browser
-				+ " is being used.");
+//		logger.info("You have selected " + System.getProperty("browser") + " as your browser. " + browser
+//				+ " is being used.");
 	}
 
 	public static void launchBrowsernLoadURL() throws Exception {

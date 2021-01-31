@@ -25,10 +25,25 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
 import com.seleniumeasy.framework.config.Property;
 
+/**
+ * This Util can be used to implement all basic operations 
+ * needed for API Client
+ * 
+ * @author Rakesh
+ *
+ */
 public final class BookerApiClientUtil {
 	
 	protected static final Log logger = new Log4JLogger(BookerApiClientUtil.class.getName());
 
+	/**
+	 * Reads Response message from HttpEntity
+	 * 
+	 * @param httpEntity
+	 * @return
+	 * @throws UnsupportedOperationException
+	 * @throws IOException
+	 */
 	public static String getResponseMessage(HttpEntity httpEntity) throws UnsupportedOperationException, IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(httpEntity.getContent()));
@@ -41,6 +56,12 @@ public final class BookerApiClientUtil {
 		return sb.toString();
 	}
 	
+	/**
+	 * Writes Request message to File
+	 * 
+	 * @param responseMessage
+	 * @param fileName
+	 */
 	public static void writeRequestMessage(String responseMessage, String fileName) {
 		PrintWriter pw = null;
 		try {
@@ -53,7 +74,13 @@ public final class BookerApiClientUtil {
 			pw.flush();
 		}
 	}
-
+	
+	/**
+	 * Writes Response message to File
+	 * 
+	 * @param responseMessage
+	 * @param fileName
+	 */
 	public static void writeResponseMessage(String responseMessage, String fileName) {
 		PrintWriter pw = null;
 		try {
@@ -67,12 +94,18 @@ public final class BookerApiClientUtil {
 		}
 	}
 	
-	private static String fetchEncodedToken() throws FileNotFoundException, IOException {
+	/**
+	 * Fetches Encoded Token for Authorization
+	 * 
+	 * @return
+	 * @throws IOException
+	 */
+	private static String fetchEncodedToken() throws IOException{
 		String user = Property.getProperty("api.token.username");
 		String pswrd = Property.getProperty("api.token.password");
 		return Base64.getEncoder().encodeToString((user+":"+pswrd).getBytes("UTF-8"));
 	}
-
+	
 	public static HttpResponse fetchPostResponse(String url, StringEntity entity, boolean authRequired, Map<String, String> headerMap)
 			throws ClientProtocolException, IOException {
 		logger.debug("INSIDE fetchPostResponse>>"+url);
@@ -142,5 +175,5 @@ public final class BookerApiClientUtil {
 
 		return client.execute(delete);
 	}
-
+	
 }

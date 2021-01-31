@@ -14,14 +14,11 @@ import org.testng.annotations.Test;
 import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.ui.testobjects.AjaxFormPage;
 import com.seleniumeasy.ui.testobjects.ProgressBarsPage;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class ProgressBarsTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 	private static ProgressBarsPage progressbars;
 
@@ -48,38 +45,22 @@ public class ProgressBarsTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void progressBars() throws Exception {
 
-		Global.sScriptName = "progressBars";
-		Global.useCaseName = "UI_TC_03_Progress Bars";
-		Global.useCaseDescription = "Verify it proceeds till 100% and lo the Total time taken for download (in seconds)";
-		Global.curHighLight = true;
-		Global.curHeading = "Calculate Download Bar Progress Time";
-		Global.ER = "Succesful download bar progress verification";
-		Global.EAR = "Download bar progress verified successfully";
-		Global.UEAR = "Failed to validate the progress";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("progressBars", "UI_TC_03_Progress Bars",
+				"Verify it proceeds till 100% and lo the Total time taken for download (in seconds)",
+				"Calculate Download Bar Progress Time", "Succesful download bar progress verification",
+				"Download bar progress verified successfully", "Failed to validate the progress");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		progressbars = new ProgressBarsPage();
-		currentTime = pageAction.getCurrentTimestamp();
-
-		pageAction.waitForElement(By.linkText(progressbars.progressBarsLink));
+		progressbars.waitForElement(By.linkText(progressbars.progressBarsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		progressbars.clickProgressBars();
 		progressbars.clickbootStrapProgressFormsLink();
 		progressbars.clickDownloadButton();
-		pageAction.startStopwatch();
+		progressbars.startStopwatch();
 		progressbars.startAndVerifyDownloadProgress();
-		pageAction.stopStopwatch();
-		
+		progressbars.stopStopwatch();
 
 	}
 

@@ -52,6 +52,7 @@ public class FileDownloadPage extends PageAction {
 	}
 
 	public void enterTextContent() throws FileNotFoundException, IOException, InterruptedException {
+		Thread.sleep(3000);
 		enterText("Text Area", Property.getProperty("TextContent"), textArea);
 	}
 

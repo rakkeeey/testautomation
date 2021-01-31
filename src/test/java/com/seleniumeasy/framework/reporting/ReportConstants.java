@@ -1,7 +1,7 @@
 package com.seleniumeasy.framework.reporting;
 
 
-public class Constants {
+public class ReportConstants {
 	public static String sPageLoadTimeout = "30000";
 	public static long lUpLoadTimeout = 600000;
 	public static long lElementVisibleTimeout = 20000;

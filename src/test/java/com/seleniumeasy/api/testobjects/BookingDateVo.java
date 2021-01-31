@@ -4,13 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BookingDateVo implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 4993113145041486356L;
-	
-	
 
 	public BookingDateVo() {
 		super();

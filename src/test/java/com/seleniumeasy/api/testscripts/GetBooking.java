@@ -1,43 +1,40 @@
 package com.seleniumeasy.api.testscripts;
 
 import java.io.IOException;
-import java.text.ParseException;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
-import org.apache.http.client.ClientProtocolException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.seleniumeasy.api.testobjects.BookingVo;
 import com.seleniumeasy.framework.api.BookerApiClientUtil;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 
+/**
+ * This is a test case to Test positive & negative
+ * test cases of Get Booking
+ * 
+ * @author Rakesh
+ *
+ */
 public class GetBooking extends ApiBaseBooking{
 	
+	/**
+	 * This method test for Positive Booking Retrieval Flow
+	 * 
+	 * @throws IOException
+	 */
 	@Test(priority=2)
-	public void getBookingTest() throws ParseException, ClientProtocolException, IOException {
+	public void getBookingTest() throws IOException {
 	  	//File requestFile = new File(System.getProperty("user.dir")+"\\Requests\\GetRequestP.json");
 		
-		Global.sScriptName = "getBookingTest";
-		Global.useCaseName = "API_TC_03_GetBookingPositiveFlow";
-		Global.useCaseDescription = "Verify if the booking is fetched";
-		Global.curHighLight = true;
-		Global.curHeading = "Booking fetched Successfully";
-		Global.ER = "Successful booking Details fetched";
-		Global.EAR = "Booking id successfully fetched";
-		Global.UEAR = "Failed to fetch the booking";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
-    	
     	logger.info("*****INSIDE GET*****");
+    	
+    	ReportUtility.setReportingData("getBookingTest", "API_TC_03_GetBookingPositiveFlow", 
+				"Verify if the booking is fetched",
+				"Booking fetched Successfully", "Successful booking Details fetched", 
+				"Booking id successfully fetched", "Failed to fetch the booking");
     	
     	HttpResponse response = BookerApiClientUtil.fetchGetResponse(clientUrl+createdBookingId, false, headerMap);
 
@@ -51,44 +48,37 @@ public class GetBooking extends ApiBaseBooking{
     	BookerApiClientUtil.writeResponseMessage(responseMessage, "2GetResponseP.json");
     	
     	Assert.assertEquals(entity.getAdditionalneeds(), bookingInput.getAdditionalneeds());
-    	logger.info("*****END OF GET*****");
-    	Utility.reportingResults("Pass", "Fetching Booking Details",
+    	ReportUtility.reportingResults("Pass", "Fetching Booking Details",
 				"Successfully fetched booking is for User "+entity.getFirstname()+" "+entity.getLastname()
 				+" Booking Details : "+entity.toString(),
 				"User should be able to get Booking details");
-		
+    	logger.info("*****END OF GET*****");		
 	}
 	
+	/**
+	 * This method test for Negative Booking Retrieval Flow
+	 * 
+	 * @throws IOException
+	 */
 	@Test(priority=3)
-	public void getBookingTestNegative() throws ParseException, ClientProtocolException, IOException {
+	public void getBookingTestNegative() throws IOException {
 	  	//File requestFile = new File(System.getProperty("user.dir")+"\\Requests\\GetRequestP.json");
-		Global.sScriptName = "getBookingTestNegative";
-		Global.useCaseName = "API_TC_04_GetBookingNegativeFlow";
-		Global.useCaseDescription = "Verify if the booking is not fetched";
-		Global.curHighLight = true;
-		Global.curHeading = "Verify the booking is not fetched";
-		Global.ER = "Retrieving Booking details failed";
-		Global.EAR = "Booking details not retrieved";
-		Global.UEAR = "Failed to verify the status";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		
     	logger.info("*****INSIDE GET*****");
+    	
+    	ReportUtility.setReportingData("getBookingTestNegative", "API_TC_04_GetBookingNegativeFlow", 
+				"Verify if the booking is not fetched",
+				"Verify the booking is not fetched", "Retrieving Booking details failed", 
+				"Booking details not retrieved", "Failed to verify the status");
     	
     	HttpResponse response = BookerApiClientUtil.fetchGetResponse(clientUrl+createdBookingIdforNegative, false, headerMap);
 
     	logger.debug("Get Response Status==>"+response.getStatusLine().getStatusCode());
     	Assert.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.SC_NOT_FOUND);
-    	Utility.reportingResults("Pass", "Booking not fetched",
+    	ReportUtility.reportingResults("Pass", "Booking not fetched",
 				"Received failure response code is "+response.getStatusLine().getStatusCode(),
 				"User should not be able to retrieve Booking details for invalid Id");
-    	logger.info("*****END OF GET*****");
-		
+    	logger.info("*****END OF GET*****");		
 	}
 
 }

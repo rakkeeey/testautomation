@@ -1,9 +1,6 @@
 package com.seleniumeasy.api.testscripts;
 
-
-
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.HashMap;
 
 import org.apache.http.HttpResponse;
@@ -13,36 +10,32 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.seleniumeasy.api.testobjects.BookingConfirmationVo;
 import com.seleniumeasy.framework.api.BookerApiClientUtil;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 
-
+/**
+ * This is a test case to Test positive & negative
+ * test cases of Create Booking
+ * 
+ * @author Rakesh
+ *
+ */
 public class CreateBooking extends ApiBaseBooking{
 
-	
+	/**
+	 * This method test for Positive Booking Creation
+	 * 
+	 * @return Nothing
+	 * @throws IOException
+	 */
 	@Test(priority=0)
-	public void createBookingTest() throws IOException, ParseException {
-	
-		Global.sScriptName = "createBookingTest";
-		Global.useCaseName = "API_TC_01_CreateBookingPositiveFlow";
-		Global.useCaseDescription = "Verify if the booking is done";
-		Global.curHighLight = true;
-		Global.curHeading = "Verify the booking";
-		Global.ER = "Successful booking ID creation";
-		Global.EAR = "Booking id successfully created";
-		Global.UEAR = "Failed to verify the booking";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+	public void createBookingTest() throws IOException {
 		// File requestFile = new File(System.getProperty("user.dir")+"\\Requests\\CreateRequestP.json");
 		
 		logger.info("*****INSIDE CREATE*****");
-
+		ReportUtility.setReportingData("createBookingTest", "API_TC_01_CreateBookingPositiveFlow", "Verify if the booking is done",
+				"Verify the booking", "Successful booking ID creation", 
+				"Booking id successfully created", "Failed to verify the booking");
+		
 		HttpResponse response = BookerApiClientUtil.fetchPostResponse(clientUrl, 
 				new StringEntity(gson.toJson(bookingInput)), false, headerMap);
 
@@ -59,35 +52,28 @@ public class CreateBooking extends ApiBaseBooking{
 		Assert.assertEquals(entity.getBooking().getFirstname(), bookingInput.getFirstname());
 		createdBookingId = entity.getBookingid();
 		logger.info("*****END OF CREATE*****");
-		Utility.reportingResults("Pass", "Creation of Booking ID",
+		ReportUtility.reportingResults("Pass", "Creation of Booking ID",
 				"Successfully created booking ID is "+createdBookingId
 				+" Booking Details : "+entity.getBooking().toString(),
 				"User should be able to create a booking ID");
 	
 	}
 	
+	/**
+	 * This method test for Negative Booking Creation Flow
+	 * 
+	 * @return Nothing
+	 * @throws IOException
+	 */
 	@Test(priority=1)
-	public void createBookingTestNegative() throws IOException, ParseException {
-		Global.sScriptName = "createBookingTestNegative";
-		Global.useCaseName = "API_TC_02_CreateBookingNegativeFlow";
-		Global.useCaseDescription = "Verify if the booking is not done";
-		Global.curHighLight = true;
-		Global.curHeading = "Verify the booking is not done";
-		Global.ER = "Failed Booking";
-		Global.EAR = "Booking id not created";
-		Global.UEAR = "Failed to verify the status";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+	public void createBookingTestNegative() throws IOException {		
 		// File requestFile = new File(System.getProperty("user.dir")+"\\Requests\\CreateRequestP.json");
-		
 		logger.info("*****INSIDE CREATE*****");
-		String toTest = bookingInput.getLastname();
+		ReportUtility.setReportingData("createBookingTestNegative", "API_TC_02_CreateBookingNegativeFlow", 
+				"Verify if the booking is not done",
+				"Verify the booking is not done", "Failed Booking", 
+				"Booking id not created", "Failed to verify the status");
+		
 		bookingInput.setLastname("E");
 
 		HttpResponse response = BookerApiClientUtil.fetchPostResponse(clientUrl, 
@@ -97,7 +83,7 @@ public class CreateBooking extends ApiBaseBooking{
 		Assert.assertEquals(response.getStatusLine().getStatusCode(), HttpStatus.SC_INTERNAL_SERVER_ERROR);
 				
 		logger.info("*****END OF CREATE*****");
-		Utility.reportingResults("Pass", "Booking ID not created",
+		ReportUtility.reportingResults("Pass", "Booking ID not created",
 				"Received failure response code is "+response.getStatusLine().getStatusCode(),
 				"User should not be able to submit a booking without proper headers");
 	}	

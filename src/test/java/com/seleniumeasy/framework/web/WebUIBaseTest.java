@@ -26,12 +26,7 @@ public class WebUIBaseTest {
 
 
   public WebUIBaseTest(){
-
-	  logger = new Log4JLogger("WebUIBaseTestLogger");
-	 		
-				//Property.instantiateProperties();
-	
-	
+	  logger = new Log4JLogger("WebUIBaseTestLogger");	
   }
 	
   @BeforeClass (alwaysRun = true)

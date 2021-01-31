@@ -119,11 +119,8 @@ public class DataTable {
 			logger.error("Error writing date to Excel file: " + dataProvider + e.getMessage());
 		}
 
-	} //// Set Parameter Value
+	} 
 
-	// Working---but this method has exactly the same result as
-	// setDataValue--Parameter also exactly same
-	// Set Parameter Value
 	public static void setValue(String parameterID, String SheetID, String identifier, int currentIteration,
 			String dataProvider, String valToSet) throws BiffException, IOException, WriteException {
 
@@ -190,8 +187,19 @@ public class DataTable {
 
 	} // // Set Parameter Value
 
-	//// setData working This method will set the "data" to the columnname by the
-	//// given keyValue
+	/**
+	 * This method will set the "data" to the columnname by the given keyValue
+	 * @param keyValue
+	 * @param columnname
+	 * @param sheetID
+	 * @param dataToPut
+	 * @param dataProvider
+	 * @param identifier
+	 * @throws BiffException
+	 * @throws IOException
+	 * @throws RowsExceededException
+	 * @throws WriteException
+	 */
 	public static void setData(String keyValue, String columnname, String sheetID, String dataToPut,
 			String dataProvider, String identifier)
 			throws BiffException, IOException, RowsExceededException, WriteException {
@@ -233,10 +241,20 @@ public class DataTable {
 			workbookSetData.write();
 			workbookSetData.close();
 		}
-	} // SetDATA
+	} 
 
-	// getData working This method will get the "data" from the columnname by the
-	// given keyValue
+	/**
+	 * This method will get the "data" from the columnname by the given keyValue
+	 * @param keyValue
+	 * @param columnname
+	 * @param sheetID
+	 * @param dataProvider
+	 * @param identifier
+	 * @return
+	 * @throws BiffException
+	 * @throws IOException
+	 * @throws RowsExceededException
+	 */
 	public static String getData(String keyValue, String columnname, String sheetID, String dataProvider,
 			String identifier) throws BiffException, IOException, RowsExceededException {
 
@@ -281,8 +299,18 @@ public class DataTable {
 		}
 	} // getDATA
 
-	// getDataValues working This method will get the "multiple data" from all
-	// columns in a table by the given keyValue
+	/** This method will get the "multiple data" from all
+	 * columns in a table by the given keyValue
+	 * 
+	 * @param keyValue
+	 * @param dataProvider
+	 * @param sheetID
+	 * @param tablename
+	 * @return
+	 * @throws BiffException
+	 * @throws IOException
+	 * @throws RowsExceededException
+	 */
 	public static Map<String, String> getDataValues(String keyValue, String dataProvider, String sheetID,
 			String tablename) throws BiffException, IOException, RowsExceededException {
 
@@ -347,10 +375,7 @@ public class DataTable {
 	} // end of getDataValues
 
 	/**
-	 * Author Rakesh working sheetID is the name of the Sheet,dataProvider is the
-	 * exact path of the excel sheet, tableName is the name of the scenario table
-	 * with in the sheet keyValue is the row identification number, columnname is
-	 * Name of the column in scenario table
+	 * This gets data with the provided arguments
 	 * 
 	 * @param SheetID
 	 *            :is the name of the Sheet

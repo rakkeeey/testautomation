@@ -5,9 +5,6 @@ import java.math.BigInteger;
 
 public class BookingVo implements Serializable{	
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2610684379190519564L;
 	
 	public BookingVo(){

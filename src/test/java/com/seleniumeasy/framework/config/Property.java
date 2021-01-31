@@ -10,9 +10,14 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
 import org.testng.Assert;
 
-
+/**
+ * Class to read the properties from property file
+ * 
+ * @author Rakesh
+ *
+ */
 public class Property {
-	
+
 	private static Properties bp;
 
 	protected static Log logger = new Log4JLogger("seleniumeasyPropertyLogger");
@@ -34,12 +39,11 @@ public class Property {
 		if (passedProperty != null) {
 
 			logger.info(" ");
-			logger.info("Found environment property \"" + passedProperty
-					+ "\" passed in, using " + passedProperty + ".properties");
+			logger.info("Found environment property \"" + passedProperty + "\" passed in, using " + passedProperty
+					+ ".properties");
 			logger.info(" ");
 
-			fileName = "src//test//resources//configs//"
-					+ passedProperty + ".properties";
+			fileName = "src//test//resources//configs//" + passedProperty + ".properties";
 
 		} else {
 
@@ -59,12 +63,9 @@ public class Property {
 			is.close();
 
 		} catch (IOException e) {
-
-			e.printStackTrace();
+			logger.error("Exception happened :: " + e.getMessage());
 			Assert.fail("File not found: " + fileName);
 		}
 	}
-   
-		
-	}
 
+}

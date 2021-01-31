@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import com.seleniumeasy.framework.config.Property;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.PageAction;
 
 public class AjaxFormPage extends PageAction {
@@ -62,7 +63,20 @@ public class AjaxFormPage extends PageAction {
 	}
 
 	public void VerifyIfSpinnerIsDisplayed() {
-		Assert.assertTrue(isElementDisplayed("Spinner", spinner));
+		
+		try {
+			Assert.assertTrue(isElementDisplayed("Spinner", spinner));
+			
+		} catch (AssertionError e) {
+			ReportUtility.reportingResults("Fail", "Check the presence of spinner element",
+					"Failed to check the presence of spinner element",
+					"User should be able to see the element");
+		    throw e;
+		}
+		ReportUtility.reportingResults("Pass", "Check the presence of spinner element",
+				"Successfully checked the presence of spinner element",
+				"User should be able to see the element");
+		
 	}
 
 	public void enterTitle() throws FileNotFoundException, IOException {
@@ -80,7 +94,7 @@ public class AjaxFormPage extends PageAction {
 
 	public void CloseAdPopupIfDisplayed() throws InterruptedException {
 		Thread.sleep(3000);
-		if (driver.findElement(By.cssSelector(adhocPopup_closeBtn)).isDisplayed()) {
+		if (isElementPresent(By.cssSelector(adhocPopup_closeBtn)) == true) {
 			Thread.sleep(3000);
 			clickButtonJS("Close Ad Button", closeButton);
 		}

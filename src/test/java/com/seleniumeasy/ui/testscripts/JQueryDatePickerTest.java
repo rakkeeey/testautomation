@@ -13,14 +13,11 @@ import org.testng.annotations.Test;
 import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.ui.testobjects.AjaxFormPage;
 import com.seleniumeasy.ui.testobjects.JQueryDatePickerPage;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class JQueryDatePickerTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 	private static JQueryDatePickerPage jquerydatepicker;
 
@@ -47,29 +44,14 @@ public class JQueryDatePickerTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void selectDates() throws Exception {
 
-		Global.sScriptName = "selectDates";
-		Global.useCaseName = "UI_TC_02_JQuery Date Picker";
-		Global.useCaseDescription = "Verify you should not be able to select From date beyond Jan 1 and To date beyond Feb 1.";
-		Global.curHighLight = true;
-		Global.curHeading = "Select Dates";
-		Global.ER = "Succesful dates selection";
-		Global.EAR = "Date selected successfully";
-		Global.UEAR = "Failed to select dates";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("selectDates", "UI_TC_02_JQuery Date Picker",
+				"Verify you should not be able to select From date beyond Jan 1 and To date beyond Feb 1",
+				"Select Dates", "Succesful dates selection", "Date selected successfully", "Failed to select dates");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
 		jquerydatepicker = new JQueryDatePickerPage();
-		currentTime = pageAction.getCurrentTimestamp();
-		pageAction.waitForElement(By.linkText(jquerydatepicker.datePickersLink));
+		jquerydatepicker.waitForElement(By.linkText(jquerydatepicker.datePickersLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		jquerydatepicker.clickDatePickers();
 		jquerydatepicker.clickJqueryDatePicker();

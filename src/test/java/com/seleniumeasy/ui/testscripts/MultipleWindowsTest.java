@@ -15,14 +15,11 @@ import org.testng.annotations.Test;
 import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.ui.testobjects.AjaxFormPage;
 import com.seleniumeasy.ui.testobjects.MultipleWindowsPage;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class MultipleWindowsTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 	private static MultipleWindowsPage multiplewindows;
 
@@ -49,35 +46,19 @@ public class MultipleWindowsTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void multipleWindowsHandling() throws Exception {
 
-		Global.sScriptName = "multipleWindowsHandling";
-		Global.useCaseName = "UI_TC_05_Multiple Window Handling";
-		Global.useCaseDescription = "Verify both windows are popped up and log the page titles of both the pop-up windows and come back to the test page and print the page title";
-		Global.curHighLight = true;
-		Global.curHeading = "Verify active window and log the page title";
-		Global.ER = "Succesful verification of active windows";
-		Global.EAR = "Verified active window and logged the page title successfully";
-		Global.UEAR = "Failed to verify active windows";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("multipleWindowsHandling", "UI_TC_05_Multiple Window Handling",
+				"Verify both windows are popped up and log the page titles of both the pop-up windows and come back to the test page and print the page title",
+				"Verify active window and log the page title", "Succesful verification of active windows",
+				"Verified active window and logged the page title successfully", "Failed to verify active windows");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
-		currentTime = pageAction.getCurrentTimestamp();
 		multiplewindows = new MultipleWindowsPage();
 		multiplewindows.waitForElement(By.linkText(multiplewindows.alertsAndModalsLinkk));
 		ajaxform.CloseAdPopupIfDisplayed();
 		multiplewindows.clickAlertsAndModalsLink();
 		multiplewindows.clickWindowPopUpModalLink();
-		multiplewindows.waitForElement(By.xpath(multiplewindows.followTwitAndFbButtonn));
 		multiplewindows.verifyOpenWindowsAndGetTitles();
-		
 
 	}
 

@@ -16,20 +16,17 @@ import com.seleniumeasy.ui.testobjects.AjaxFormPage;
 import com.seleniumeasy.ui.testobjects.ProgressBarsPage;
 import com.seleniumeasy.ui.testobjects.SliderBarsPage;
 import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class SliderBarsTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 	private static SliderBarsPage sliderbars;
 	private static ProgressBarsPage progressbars;
 
 	public SliderBarsTest() throws FileNotFoundException, IOException {
 		logger = new Log4JLogger("AjaxFormPageLogger");
-		// TODO Auto-generated constructor stub
 	}
 
 	@BeforeClass(alwaysRun = true)
@@ -50,38 +47,22 @@ public class SliderBarsTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void setSlidersToFifty() throws Exception {
 
-		Global.sScriptName = "setSlidersToFifty";
-		Global.useCaseName = "UI_TC_04_Set Sliders to Fifty";
-		Global.useCaseDescription = "Set all sliders to 50% and validate values are set to 50%";
-		Global.curHighLight = true;
-		Global.curHeading = "Set all Sliders to Fifty";
-		Global.ER = "Succesful slider set to Fifty";
-		Global.EAR = "All sliders set to Fifty successfully";
-		Global.UEAR = "Failed to set all sliders to Fifty";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("setSlidersToFifty", "UI_TC_04_Set Sliders to Fifty",
+				"Set all sliders to 50% and validate values are set to 50%", "Set all Sliders to Fifty",
+				"Succesful slider set to Fifty", "All sliders set to Fifty successfully",
+				"Failed to set all sliders to Fifty");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
-		currentTime = pageAction.getCurrentTimestamp();
 		sliderbars = new SliderBarsPage();
 		progressbars = new ProgressBarsPage();
-
-		pageAction.waitForElement(By.linkText(ajaxform.inputFormsLink));
-		pageAction.waitForElement(By.linkText(progressbars.progressBarsLink));
+		sliderbars.waitForElement(By.linkText(ajaxform.inputFormsLink));
+		sliderbars.waitForElement(By.linkText(progressbars.progressBarsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		progressbars.clickProgressBars();
 		sliderbars.clickDragAndDropSlidersLink();
-		pageAction.waitForElement(By.xpath(sliderbars.rangeLabell));
+		sliderbars.waitForElement(By.xpath(sliderbars.rangeLabell));
 		sliderbars.setAllSliders();
-
 	}
 
 	@AfterClass(alwaysRun = true)
@@ -98,7 +79,7 @@ public class SliderBarsTest extends WebUIBaseTest {
 		Global.EAR = "After suite method executed successfully";
 		Global.UEAR = "After suite method failed to execute";
 
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
+		ReportUtility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
 		Global.curHighLight = false;
 		Global.prevHeading = Global.curHeading;
 		Global.PER = Global.ER;

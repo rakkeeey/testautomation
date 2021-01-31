@@ -13,14 +13,11 @@ import org.testng.annotations.Test;
 
 import com.seleniumeasy.framework.web.SeleniumBrowser;
 import com.seleniumeasy.ui.testobjects.AjaxFormPage;
-import com.seleniumeasy.framework.reporting.Global;
-import com.seleniumeasy.framework.reporting.Utility;
-import com.seleniumeasy.framework.web.PageAction;
+import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.WebUIBaseTest;
 
 public class AjaxFormSubmitTest extends WebUIBaseTest {
 
-	private static PageAction pageAction;
 	private static AjaxFormPage ajaxform;
 
 	public AjaxFormSubmitTest() throws FileNotFoundException, IOException {
@@ -46,29 +43,14 @@ public class AjaxFormSubmitTest extends WebUIBaseTest {
 	@Test // (groups = { "sanity" })
 	public void ajaxFormSubmit() throws Exception {
 
-		Global.sScriptName = "ajaxFormSubmit";
-		Global.useCaseName = "UI_TC_01_Ajax Form Submission";
-		Global.useCaseDescription = "Verify on clicking submit spinner is shown and shows a success message once the submission is complete";
-		Global.curHighLight = true;
-		Global.curHeading = "Ajax Form Submit";
-		Global.ER = "Succesful Ajax Form Submission";
-		Global.EAR = "New Page edited successfully";
-		Global.UEAR = "Failed to edit a page";
-
-		Utility.reportingResults("Pass", Global.curHeading, Global.EAR, Global.ER);
-		Global.curHighLight = false;
-		Global.prevHeading = Global.curHeading;
-		Global.PER = Global.ER;
-		Global.PEAR = Global.EAR;
-		Global.PUEAR = Global.UEAR;
-		Global.curBC = "";
+		ReportUtility.setReportingData("ajaxFormSubmit", "UI_TC_01_Ajax Form Submission",
+				"Verify on clicking submit spinner is shown and shows a success message once the submission is complete",
+				"Ajax Form Submit", "Succesful Ajax Form Submission", "New Page edited successfully",
+				"Failed to edit a page");
 
 		SeleniumBrowser.launchBrowsernLoadURL();
-		pageAction = new PageAction();
 		ajaxform = new AjaxFormPage();
-		currentTime = pageAction.getCurrentTimestamp();
-
-		pageAction.waitForElement(By.linkText(ajaxform.inputFormsLink));
+		ajaxform.waitForElement(By.linkText(ajaxform.inputFormsLink));
 		ajaxform.CloseAdPopupIfDisplayed();
 		ajaxform.clickInputForms();
 		ajaxform.clickAjaxSubmitFormLink();
@@ -78,7 +60,7 @@ public class AjaxFormSubmitTest extends WebUIBaseTest {
 		ajaxform.VerifyIfSpinnerIsDisplayed();
 	}
 
-	 @AfterClass(alwaysRun = true)
+	@AfterClass(alwaysRun = true)
 	public static void AfterTestScript() throws Exception {
 		SeleniumBrowser.deleteFolder();
 		SeleniumBrowser.driver.quit();
