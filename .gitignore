@@ -4,6 +4,7 @@
 *.project
 *.settings/
 target/
+test-output/
 
 # Log file
 *.log

@@ -19,45 +19,47 @@ import com.seleniumeasy.api.testobjects.BookingVo;
 import com.seleniumeasy.framework.config.Property;
 
 /**
- * This can be used as Parent Class 
- * to set-up initial Test cases
+ * This can be used as Parent Class to set-up initial Test cases
  * 
  * @author Rakesh
  * @version 1.0
  */
 public class ApiBaseBooking {
-	
+
 	protected static String createdBookingId = "";
-	
+
 	protected static String createdBookingIdforNegative = "";
-	
+
 	protected static final Gson gson = new Gson();
-	
+
 	protected static BookingDateVo bookingdates;
-	
+
 	protected static BookingVo bookingInput, bookingInputUpdate;
-	
+
 	protected static final Log logger = new Log4JLogger(ApiBaseBooking.class.getName());
-	
+
 	protected String clientUrl = "";
-	
+
 	protected Map<String, String> headerMap = new HashMap<>();
-	
+
 	@BeforeClass
 	protected void init() throws IOException, ParseException {
 		logger.info("*****INSIDE SETUP****");
 		clientUrl = Property.getProperty("api.booker.url");
-		createdBookingIdforNegative = "991";
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-		bookingdates = new BookingDateVo(formatter.parse("2021-01-01"), formatter.parse("2021-01-01"));
-		bookingInput = new BookingVo("Rakesh", "Elangovan", new BigInteger("1010"), true, bookingdates,
-				"Snacks");
-		
-		bookingInputUpdate = new BookingVo("Rakesh", "Elangovan", new BigInteger("1010"), true, bookingdates,
-				"Dinner");
+		createdBookingIdforNegative =Property.getProperty("api.get.randomid");
+		SimpleDateFormat formatter = new SimpleDateFormat(Property.getProperty("api.create.dateformat"));
+		bookingdates = new BookingDateVo(formatter.parse(Property.getProperty("api.create.frombookingdate")),
+				formatter.parse(Property.getProperty("api.create.tobookingdate")));
+		bookingInput = new BookingVo(Property.getProperty("api.create.firstname"), Property.getProperty("api.create.lastname"),
+				new BigInteger(Property.getProperty("api.create.totalprice")), true, bookingdates,
+				Property.getProperty("api.create.additionalneeds"));
+
+		bookingInputUpdate = new BookingVo(Property.getProperty("api.create.firstname"), Property.getProperty("api.create.lastname"),
+				new BigInteger(Property.getProperty("api.create.totalprice")), true, bookingdates,
+				Property.getProperty("api.create.updatedadditionalneeds"));
 		headerMap.put(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
 		headerMap.put(HttpHeaders.ACCEPT, "application/json");
 		logger.info("*****DONE SETUP****");
 	}
-		
+
 }

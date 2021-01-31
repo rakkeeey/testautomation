@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class BookingConfirmationVo implements Serializable{
 	
-	private static final long serialVersionUID = -4339221151070760432L;
+	private static final long serialVersionUID = 1L;
 	
 	public BookingConfirmationVo() {
 		super();
