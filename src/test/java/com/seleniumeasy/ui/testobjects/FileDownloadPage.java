@@ -52,7 +52,6 @@ public class FileDownloadPage extends PageAction {
 	}
 
 	public void enterTextContent() throws FileNotFoundException, IOException, InterruptedException {
-		Thread.sleep(3000);
 		enterText("Text Area", Property.getProperty("TextContent"), textArea);
 	}
 
@@ -61,7 +60,7 @@ public class FileDownloadPage extends PageAction {
 	}
 
 	public void readAndVerifyDownloadedTextFile() throws Exception {
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		File listOfFiles[] = SeleniumBrowser.folder.listFiles();
 		Assert.assertTrue(listOfFiles.length > 0);
 		for (File file : listOfFiles) {

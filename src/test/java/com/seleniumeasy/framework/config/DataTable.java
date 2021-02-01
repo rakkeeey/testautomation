@@ -321,11 +321,6 @@ public class DataTable {
 			Sheet sheet;
 
 			workbookgetDataValues = Workbook.getWorkbook(f);
-			// workbookgetDataValues.getSheetNames();
-			// logger.info("value of workbook
-			// "+workbookgetDataValues.getSheetNames());
-			// Sheet[] sheets =workbookgetDataValues.getSheets();
-			// sheet = sheets[0];
 			int startRow, startCol;
 
 			sheet = workbookgetDataValues.getSheet(sheetID);

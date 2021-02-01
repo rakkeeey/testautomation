@@ -2,6 +2,7 @@ package com.seleniumeasy.ui.testobjects;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.impl.Log4JLogger;
@@ -11,9 +12,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
+import com.seleniumeasy.framework.config.DataTable;
 import com.seleniumeasy.framework.config.Property;
 import com.seleniumeasy.framework.reporting.ReportUtility;
 import com.seleniumeasy.framework.web.PageAction;
+
+import jxl.read.biff.BiffException;
+import jxl.write.biff.RowsExceededException;
 
 public class AjaxFormPage extends PageAction {
 
@@ -22,6 +27,8 @@ public class AjaxFormPage extends PageAction {
 	private static String adhocPopup_closeBtn = "#at-cv-lightbox-close";
 	public String ajaxFormsSubmitLink = "Ajax Form Submit";
 
+	private static String testSheet = "AjaxFormPage";
+	private static String ajaxformtable = "AjaxFormCreationTable";
 	@FindBy(linkText = "Input Forms")
 	WebElement inputForms;
 
@@ -79,7 +86,14 @@ public class AjaxFormPage extends PageAction {
 		
 	}
 
-	public void enterTitle() throws FileNotFoundException, IOException {
+	public void enterTitle() throws FileNotFoundException, IOException, RowsExceededException, BiffException {
+		
+		//Code used to read data from excel
+		Map<String, String> seqColumns = DataTable.getDataValues("TestDataOne", Property.getProperty("DataFile"), testSheet, ajaxformtable);
+		//String title = seqColumns.get("Title");
+		
+		//write data
+		//Map<String, String> seqColumns = DataTable.setData(keyValue, columnname, sheetID, dataToPut, dataProvider, identifier);
 		enterText("Title", Property.getProperty("title"), titleTextField);
 
 	}
@@ -93,7 +107,6 @@ public class AjaxFormPage extends PageAction {
 	}
 
 	public void CloseAdPopupIfDisplayed() throws InterruptedException {
-		Thread.sleep(3000);
 		if (isElementPresent(By.cssSelector(adhocPopup_closeBtn)) == true) {
 			Thread.sleep(3000);
 			clickButtonJS("Close Ad Button", closeButton);

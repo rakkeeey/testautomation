@@ -105,9 +105,18 @@ public class JQueryDatePickerPage extends PageAction {
 		Assert.assertTrue(defaultItems.equals("Jan"));
 
 		monthLeftNavigation.click();
-		Assert.assertTrue(!defaultItems.equals("Dec"));
-		Assert.assertEquals(yearLabel.getText(), year);
-		ReportUtility.reportingResults("Pass", "verify you should not be able to select To date beyond Feb 1",
+
+		try {
+			Assert.assertTrue(!defaultItems.equals("Dec"));
+			Assert.assertEquals(yearLabel.getText(), year);
+
+		} catch (AssertionError e) {
+			ReportUtility.reportingResults("Fail", "Verify you should not be able to select To date beyond Feb 1",
+					"User is able to select To Date beyond Feb 1",
+					"User should not able to select To Date beyond Feb 1");
+			throw e;
+		}
+		ReportUtility.reportingResults("Pass", "Verify you should not be able to select To date beyond Feb 1",
 				"User is not able to select To Date beyond Feb 1",
 				"User should not able to select To Date beyond Feb 1");
 
@@ -130,14 +139,24 @@ public class JQueryDatePickerPage extends PageAction {
 		String defaultItems = options.getText();
 		Assert.assertTrue(defaultItems.equals("Feb"));
 		monthRightNavigation.click();
-		Assert.assertTrue(!defaultItems.equals("Mar"));
-		Assert.assertEquals(yearLabel.getText(), year);
-		for (int i = 2; i <= 28; i++) {
-			Assert.assertFalse(isElementPresent((By.linkText(Integer.toString(i)))));
+
+		try {
+			Assert.assertTrue(!defaultItems.equals("Mar"));
+			Assert.assertEquals(yearLabel.getText(), year);
+			for (int i = 2; i <= 28; i++) {
+				Assert.assertFalse(isElementPresent((By.linkText(Integer.toString(i)))));
+			}
+
+		} catch (AssertionError e) {
+			ReportUtility.reportingResults("Fail", "verify you should not be able to select From date beyond Jan 1",
+					"User is able to select From date beyond Jan 1",
+					"User should not able to select From date beyond Jan 1");
+			throw e;
 		}
 		ReportUtility.reportingResults("Pass", "verify you should not be able to select From date beyond Jan 1",
 				"User is not able to select From date beyond Jan 1",
 				"User should not able to select From date beyond Jan 1");
+
 	}
 
 }
